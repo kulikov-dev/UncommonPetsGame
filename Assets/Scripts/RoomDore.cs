@@ -7,10 +7,10 @@ public class RoomDore : MonoBehaviour {
     private int ObjectsCounter = 0; //Если = 0, то дверь закрыта
     public SpriteRenderer DoorSprite;
 
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("OnCollisionEnter2D");
-        if (coll.gameObject.GetComponent<Animal>() != null)
+        if (other.gameObject.GetComponent<Animal>() != null)
         {
             ObjectsCounter++;
             if (!DoorSprite.enabled)
@@ -18,9 +18,9 @@ public class RoomDore : MonoBehaviour {
         }            
     }
 
-    void OnTriggerExit2D(Collider2D coll)
+    void OnTriggerExit2D(Collider2D other)
     {
-        if (coll.gameObject.GetComponent<Animal>() != null)
+        if (other.gameObject.GetComponent<Animal>() != null)
         {
             ObjectsCounter--;
             if(ObjectsCounter <= 0)
