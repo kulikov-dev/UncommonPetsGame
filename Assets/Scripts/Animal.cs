@@ -16,6 +16,11 @@ public class Animal : MonoBehaviour {
     public float Velocity = 0.0f;
 
     private bool IsMoving = false;
+
+    /// <summary> Параметр здоровья у животного/девочки </summary>
+    public float Health = 100f;
+    /// <summary> Второй параметр (депрессия для девочки, нагрев для бегемота) </summary>
+    public float Param = 0f;
     
     public virtual void SelectNewTarget(Transform oldTarget) //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
     {
@@ -64,7 +69,7 @@ public class Animal : MonoBehaviour {
             SelectNewTarget(null);
     }
 
-    void Start()
+   internal void Start()
     {
         StartMoving();
     }
