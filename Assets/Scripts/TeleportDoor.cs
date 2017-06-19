@@ -13,7 +13,8 @@ public class TeleportDoor : MonoBehaviour {
         if (TeleportTarget != null && targetDoor != null)
         {
             animal.StopMoving();
-            animal.transform.Translate(TeleportTarget.position - animal.transform.position);
+            var delta = TeleportTarget.position - animal.transform.position;
+            animal.transform.Translate(new Vector3(delta.x, delta.y, 0.0f));
             animal.Level = targetDoor.Level;
             animal.StartMoving();
             return true;
