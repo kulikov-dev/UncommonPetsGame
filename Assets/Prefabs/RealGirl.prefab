@@ -228,11 +228,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4495894513593154}
-  - component: {fileID: 114676333967608828}
   - component: {fileID: 61459499905838068}
   - component: {fileID: 50835614070018874}
   - component: {fileID: 95219033098618494}
   - component: {fileID: 114757287572550000}
+  - component: {fileID: 114098895840494884}
   m_Layer: 0
   m_Name: RealGirl
   m_TagString: Untagged
@@ -909,6 +909,28 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 114358851342361696}
+--- !u!114 &114098895840494884
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432264624567692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86231319046ea344d9df5dbcd45d1eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxVelocity: 2
+  MaxAcceleration: 4
+  Target: {fileID: 0}
+  Level: 0
+  CheckTargetDistance: 1
+  Acceleration: 4
+  Velocity: 0
+  Health: 100
+  Param: 0
+  NewAnimalTime: 5
+  TimeBeforeNewAnimal: 3
 --- !u!114 &114130449276320246
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1109,26 +1131,6 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4086790050851370}
   m_AttachedIK: {fileID: 114720254352497140}
---- !u!114 &114676333967608828
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1432264624567692}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5e8a6c4e63a5254b8d2e400ea1df414, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxVelocity: 2
-  MaxAcceleration: 4
-  Target: {fileID: 0}
-  Level: 0
-  CheckTargetDistance: 1
-  Acceleration: 4
-  Velocity: 0
-  Health: 100
-  Param: 0
 --- !u!114 &114710826895094968
 MonoBehaviour:
   m_ObjectHideFlags: 1

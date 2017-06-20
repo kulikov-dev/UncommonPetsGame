@@ -29,9 +29,14 @@ public class Girl : Animal {
         }
         else
         {
-            if (Random.value < Mathf.Min((Time.time - LastAnimalTime - TimeBeforeNewAnimal) / NewAnimalTime, 1.0f))
+            if (Level == 0 && Random.value < Mathf.Min((Time.time - LastAnimalTime - TimeBeforeNewAnimal) / NewAnimalTime, 1.0f))
             {
-
+                var newAnimalTarget = FindObjectOfType<NewAnimalPoint>();
+                if(newAnimalTarget != null)
+                {
+                    SetTarget(newAnimalTarget.transform);
+                    return false;
+                }
             }
         }
 
