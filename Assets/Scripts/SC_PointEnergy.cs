@@ -30,11 +30,14 @@ public class SC_PointEnergy : MonoBehaviour
 
     }
 
-    /// <summary> Проводка сломана </summary>
+    /// <summary> Проводка сломана 
+    /// отмечает контроллеру дня и ночи, что свет в доме не работает
+    /// </summary>
     public void DestroyEnergy()
     {
         IsLightBroken = true;
-        // добавить: отмечает контроллеру дня и ночи, что свет в доме не работает
+        var dayNightController = FindObjectOfType<DayNightController>();
+        dayNightController.SetLightOn(false);
     }
 
     /// <summary> Попытаться починить проводку </summary>

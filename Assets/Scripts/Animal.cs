@@ -130,4 +130,10 @@ public class Animal : MonoBehaviour {
     {
 
     }
+
+    private void OnMouseDown()
+    {
+        var protagonist = FindObjectOfType<SC_Protagonist>();
+        protagonist.OnMouseAction(this);
+    }
 }

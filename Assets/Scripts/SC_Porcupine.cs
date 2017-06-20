@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using System.Timers;
 using UnityEngine;
 
-public class SC_Porcupine : Animal, SC_ICleanable
+public class SC_Porcupine : Animal, ICleanable
 {
     private Coroutine C_DropNeedles;
     private Coroutine C_Gnawing;
 
     public GameObject P_Needles;
+
+    private bool isGnawing;
 
     private float LastGnowingTime;
     /// <summary> Время в течении которого точно не начнет грызть проводку </summary>
@@ -28,15 +30,18 @@ public class SC_Porcupine : Animal, SC_ICleanable
         LastGnowingTime = Time.time;
     }
 
-    void SC_ICleanable.Clean()
+    void ICleanable.Clean()
     {
-        if (currentPointEnergy != null)
+        if (isGnawing)
         {
             StopCoroutine(C_Gnawing);   // Остановить перегрызение проводки
             currentPointEnergy = null;
 
             StartDropNeedles();     // начнем снова сбрасывать иголки, с горя.
             SelectNewTarget();      // отправим слоняться в другое место. 
+            isGnawing = false;
+
+            Debug.Log("Go away, porcupine :(");
         }
     }
 
@@ -51,6 +56,7 @@ public class SC_Porcupine : Animal, SC_ICleanable
         if (newEnergyPoint != null)
         {
             Debug.Log("Start gnowing");
+            isGnawing = true;
             StopCoroutine(C_DropNeedles);
             C_Gnawing= StartCoroutine(DestroyEnergyFunc(4));
             LastGnowingTime = Time.time;
@@ -90,7 +96,9 @@ public class SC_Porcupine : Animal, SC_ICleanable
         while (true) // stopping condition?
         {
             yield return new WaitForSeconds(duration);
+            isGnawing = false;
             currentPointEnergy.DestroyEnergy();
+            currentPointEnergy = null;
             StopCoroutine(C_Gnawing);
             StartDropNeedles();
             SelectNewTarget();

@@ -52,8 +52,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e030a8c402cb524598f84427eba24ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Sprite_EnergyWork: {fileID: 21300000, guid: c758516668c1b9e408a2e3254baf48a8, type: 3}
-  Sprite_EnergyBroken: {fileID: 21300000, guid: 23e220d255932824b8e3de0f77bfb294,
+  Sprite_EnergyWork: {fileID: 21300000, guid: 184fd56b34a1dc448a6dee272050a916, type: 3}
+  Sprite_EnergyBroken: {fileID: 21300000, guid: 2661e1d298b879b4988a87418326c881,
     type: 3}
 --- !u!212 &212052480164108480
 SpriteRenderer:
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c758516668c1b9e408a2e3254baf48a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 184fd56b34a1dc448a6dee272050a916, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
