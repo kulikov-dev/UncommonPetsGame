@@ -286,6 +286,11 @@ SpriteRenderer:
   m_Size: {x: 1.27, y: 2.13}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
+--- !u!4 &77141585 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4090711881197886, guid: 6553186225ec2eb4e8662cc4df461a60,
+    type: 2}
+  m_PrefabInternal: {fileID: 926377348}
 --- !u!4 &114987415 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4645344382749174, guid: 07b1b5f6052fb13498a34cf62adad9c5,
@@ -1780,7 +1785,7 @@ Prefab:
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
       propertyPath: Animals.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4776290242927238, guid: 7a48a610808941f4281afef1fc11285e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1831,6 +1836,12 @@ Prefab:
       propertyPath: SpawnDuration
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
+        type: 2}
+      propertyPath: Animals.Array.data[2]
+      value: 
+      objectReference: {fileID: 1256927629557378, guid: 5eee7621bedc42c4ca2cba840a7f0b80,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a48a610808941f4281afef1fc11285e, type: 2}
   m_IsPrefabParent: 0
@@ -3228,6 +3239,16 @@ Prefab:
         type: 2}
       propertyPath: m_Length
       value: 0.3699733
+      objectReference: {fileID: 0}
+    - target: {fileID: 114098895840494884, guid: 976b5b77532be2d47a41780cd996160d,
+        type: 2}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 77141585}
+    - target: {fileID: 114098895840494884, guid: 976b5b77532be2d47a41780cd996160d,
+        type: 2}
+      propertyPath: TimeBeforeNewAnimal
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 976b5b77532be2d47a41780cd996160d, type: 2}
