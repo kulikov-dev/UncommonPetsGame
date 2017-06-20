@@ -24,7 +24,7 @@ public class Animal : MonoBehaviour {
     /// <summary> Прирост голода в секунду </summary>
     private float hungerPerSecond = 0.01f;
 
-    public virtual void SelectNewTarget(Transform oldTarget) //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
+    public virtual void SelectNewTarget() //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
     {
         var rooms = GameObject.FindGameObjectsWithTag("Level_" + Level.ToString()); //Ищем комнату по этажу
         if (rooms.Length > 0)
@@ -75,7 +75,7 @@ public class Animal : MonoBehaviour {
     {
         IsMoving = true;
         if (Target == null)
-            SelectNewTarget(null);
+            SelectNewTarget();
     }
 
     internal void Start()
@@ -104,7 +104,7 @@ public class Animal : MonoBehaviour {
                 //Если не удалось телепортироваться, выбираем себе другую цель
                 if ((teleport == null || !teleport.TeleportAnimal(this)) && NeedSelectNewTarget(oldTarget))
                 {                    
-                    SelectNewTarget(oldTarget);
+                    SelectNewTarget();
                 }
             }
         }
