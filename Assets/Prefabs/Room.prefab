@@ -295,6 +295,8 @@ MonoBehaviour:
   - {fileID: 4090711881197886}
   - {fileID: 4504023389124886}
   - {fileID: 0}
+  DarkRoom: {fileID: 212596808839214822}
+  NightRoom: {fileID: 212491989599869706}
 --- !u!212 &212034476435600656
 SpriteRenderer:
   m_ObjectHideFlags: 1
