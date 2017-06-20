@@ -1128,7 +1128,7 @@ MonoBehaviour:
   Acceleration: 4
   Velocity: 0
   Health: 100
-  Param: 0
+  Hunger: 0
 --- !u!114 &114710826895094968
 MonoBehaviour:
   m_ObjectHideFlags: 1

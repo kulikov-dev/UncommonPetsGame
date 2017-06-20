@@ -10,7 +10,7 @@ public class RoomDore : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("OnCollisionEnter2D");
-        if (other.gameObject.GetComponent<Animal>() != null)
+        if (other.gameObject.GetComponent<SC_BaseCreature>() != null)
         {
             ObjectsCounter++;
             if (!DoorSprite.enabled)
@@ -20,7 +20,7 @@ public class RoomDore : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.GetComponent<Animal>() != null)
+        if (other.gameObject.GetComponent<SC_BaseCreature>() != null)
         {
             ObjectsCounter--;
             if(ObjectsCounter <= 0)
