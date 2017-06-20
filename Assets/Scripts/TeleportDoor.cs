@@ -7,7 +7,7 @@ public class TeleportDoor : MonoBehaviour {
     public Transform TeleportTarget;
     public int Level;
 
-    public bool TeleportAnimal(SC_BaseCreature creature)
+    public bool TeleportAnimal(Animal creature)
     {
         var targetDoor = TeleportTarget.gameObject.GetComponent<TeleportDoor>();
         if (TeleportTarget != null && targetDoor != null)
