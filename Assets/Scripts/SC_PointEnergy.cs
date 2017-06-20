@@ -9,10 +9,10 @@ public class SC_PointEnergy : MonoBehaviour
     public Sprite Sprite_EnergyBroken;
 
     private bool isLightBroken = false;
-    private bool IsLightBroken
+    public bool IsLightBroken
     {
         get { return isLightBroken; }
-        set
+        private set
         {
             isLightBroken = value;
             transform.gameObject.GetComponent<SpriteRenderer>().sprite = value ? Sprite_EnergyBroken : Sprite_EnergyWork;

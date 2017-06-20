@@ -136,4 +136,10 @@ public class Animal : MonoBehaviour {
         var protagonist = FindObjectOfType<SC_Protagonist>();
         protagonist.OnMouseAction(this);
     }
+
+    public virtual void GetDamage(float damage)
+    {
+        Health = Mathf.Clamp(Health - damage, 0, 100);
+        // TODO обработка смерти животного
+    }
 }

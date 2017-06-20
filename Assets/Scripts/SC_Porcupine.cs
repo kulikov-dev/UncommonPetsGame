@@ -8,7 +8,7 @@ public class SC_Porcupine : Animal, ICleanable
 {
     private Coroutine C_DropNeedles;
     private Coroutine C_Gnawing;
-
+    
     public GameObject P_Needles;
 
     private bool isGnawing;
@@ -48,7 +48,7 @@ public class SC_Porcupine : Animal, ICleanable
     /// <summary> Запуск таймера сбрасывания иголок </summary>
     private void StartDropNeedles()
     {
-        C_DropNeedles = StartCoroutine(DropNeedlesFunc(UnityEngine.Random.Range(5, 20)));
+        C_DropNeedles = StartCoroutine(DropNeedlesFunc(UnityEngine.Random.Range(5, 15)));
     }
     public override bool NeedSelectNewTarget(Transform oldTarget)
     {
@@ -58,22 +58,19 @@ public class SC_Porcupine : Animal, ICleanable
             Debug.Log("Start gnowing");
             isGnawing = true;
             StopCoroutine(C_DropNeedles);
-            C_Gnawing= StartCoroutine(DestroyEnergyFunc(4));
+            C_Gnawing = StartCoroutine(DestroyEnergyFunc(4));
             LastGnowingTime = Time.time;
             return false;
         }
         else
         {
-            if (Level == 1 && UnityEngine.Random.value < Mathf.Min((Time.time - LastGnowingTime - TimeBeforeNewGnowing) / NewGnowingTime, 1.0f))
+            newEnergyPoint = FindObjectOfType<SC_PointEnergy>();
+            if (Level == 1 && newEnergyPoint != null && !newEnergyPoint.IsLightBroken && UnityEngine.Random.value < Mathf.Min((Time.time - LastGnowingTime - TimeBeforeNewGnowing) / NewGnowingTime, 1.0f))
             {
-                newEnergyPoint = FindObjectOfType<SC_PointEnergy>();
-                if (newEnergyPoint != null)
-                {
-                    Debug.Log("Go gnowing");
-                    currentPointEnergy = newEnergyPoint;
-                    SetTarget(newEnergyPoint.transform);
-                    return false;
-                }
+                Debug.Log("Go gnowing");
+                currentPointEnergy = newEnergyPoint;
+                SetTarget(newEnergyPoint.transform);
+                return false;
 
             }
         }
@@ -85,9 +82,12 @@ public class SC_Porcupine : Animal, ICleanable
     {
         while (true) // stopping condition?
         {
-            duration = UnityEngine.Random.Range(10, 50);
+            Debug.Log("Drop needles");
+            duration = UnityEngine.Random.Range(5, 15);
             yield return new WaitForSeconds(duration);
-            Instantiate(P_Needles, transform.position, transform.rotation);
+            var needles = Instantiate(P_Needles, transform.position, transform.rotation);
+            var script = needles.GetComponent<SC_Needles>();
+            script.Parent = this;
         }
 
     }
