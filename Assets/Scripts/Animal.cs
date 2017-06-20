@@ -38,23 +38,30 @@ public class Animal : MonoBehaviour {
                     {
                         newTarget = room.TargetPoints[Random.Range(0, room.TargetPoints.Length)];
                     }
-                    Target = newTarget;
+                    SetTarget(newTarget);
                 }
                 else
                 {
-                    Target = room.TargetPoints[0];
+                    SetTarget(room.TargetPoints[0]);
                 }
-                Acceleration = Target.position.x - transform.position.x;
-                if (Acceleration != 0.0f)
-                {
-                    Acceleration = Acceleration * MaxAcceleration / Mathf.Abs(Acceleration);
-                    if (Acceleration * transform.localScale.x < 0.0f)
-                        transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
-                }
-                else
-                    Acceleration = MaxAcceleration;
+                
             }
         }
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        Target = newTarget;
+
+        Acceleration = Target.position.x - transform.position.x;
+        if (Acceleration != 0.0f)
+        {
+            Acceleration = Acceleration * MaxAcceleration / Mathf.Abs(Acceleration);
+            if (Acceleration * transform.localScale.x < 0.0f)
+                transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+        else
+            Acceleration = MaxAcceleration;
     }
 
     public void StopMoving()
@@ -69,12 +76,17 @@ public class Animal : MonoBehaviour {
             SelectNewTarget(null);
     }
 
-   internal void Start()
+    internal void Start()
     {
         StartMoving();
     }
 
-    void Update()
+    public virtual bool NeedSelectNewTarget(Transform oldTarget)
+    {
+        return true;
+    }
+
+    internal void Update()
     {
         if (IsMoving && Target != null) //Меняем скорость и позицию со временем
         {
@@ -88,7 +100,7 @@ public class Animal : MonoBehaviour {
                 var oldTarget = Target;
                 Target = null;
                 //Если не удалось телепортироваться, выбираем себе другую цель
-                if (teleport == null || !teleport.TeleportAnimal(this))
+                if ((teleport == null || !teleport.TeleportAnimal(this)) && NeedSelectNewTarget(oldTarget))
                 {                    
                     SelectNewTarget(oldTarget);
                 }

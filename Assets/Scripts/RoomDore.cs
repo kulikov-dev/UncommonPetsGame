@@ -9,7 +9,6 @@ public class RoomDore : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("OnCollisionEnter2D");
         if (other.gameObject.GetComponent<Animal>() != null)
         {
             ObjectsCounter++;
