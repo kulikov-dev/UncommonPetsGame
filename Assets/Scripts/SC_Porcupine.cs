@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SC_Porcupine : Animal,SC_ICleanable
+public class SC_Porcupine : Animal ,SC_ICleanable
 {
     /// <summary> Показывает, что дикообраз грызет проводку </summary>
     public bool IsGnawing;

@@ -6,6 +6,8 @@ public class RoomScript : MonoBehaviour {
 
     public int Level;
     public Transform[] TargetPoints;
+    public SpriteRenderer DarkRoom;
+    public SpriteRenderer NightRoom;
 
     // Use this for initialization
     void Start()
@@ -17,4 +19,20 @@ public class RoomScript : MonoBehaviour {
     void Update () {
 		
 	}
+
+    public void SetDayNight(bool isDay, bool isLightOn)
+    {
+        if (isDay)
+        {
+            DarkRoom.enabled = false;
+            NightRoom.enabled = false;
+        }
+        else
+        {
+            //Видимость спрайтов меняем в зависимости от isLightOn
+            DarkRoom.enabled = !isLightOn;
+            NightRoom.enabled = isLightOn;
+        }
+    }
+
 }
