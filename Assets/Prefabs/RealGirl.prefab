@@ -928,7 +928,7 @@ MonoBehaviour:
   Acceleration: 4
   Velocity: 0
   Health: 100
-  Param: 0
+  Hunger: 0
   NewAnimalTime: 5
   TimeBeforeNewAnimal: 3
 --- !u!114 &114130449276320246
