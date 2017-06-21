@@ -103,6 +103,7 @@ public class Hippo : Animal, ICleanable
             if (!dirtyRoom.DirtyLevelUp())
                 break;
         }
+        dirtyRoom.SetCanBeDestroyed();
         StopPooping();
     }
 
