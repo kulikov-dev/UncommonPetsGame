@@ -6,7 +6,7 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
     /// <summary> Предмет находится на своей точке спауна </summary>
     public bool IsOnPlace = true;
     /// <summary> Точка, куда будет возвращаться итем </summary>
-    public Transform ParentTarget;
+    private Vector3 StartPosition;
     /// <summary> Уровень, на котором находится предмет
     /// НЕ ЗАБЫТЬ проставить в редакторе!
     /// </summary>
@@ -15,7 +15,7 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
     // Use this for initialization
     void Start()
     {
-
+        StartPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -52,7 +52,7 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
     /// <summary> По щелчку - возвращаем предмет на место </summary>
     public void Touch()
     {
-        gameObject.transform.position = ParentTarget.position;
+        gameObject.transform.position = StartPosition;
         IsOnPlace = true;
         RecoverItem();
     }

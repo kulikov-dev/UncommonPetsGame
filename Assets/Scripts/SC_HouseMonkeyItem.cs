@@ -7,6 +7,8 @@ public class SC_HouseMonkeyItem : SC_BaseMonkeyItem
     private void ActivateItemType(bool isActive)
     {
         var protagonist = FindObjectOfType<SC_Protagonist>();
+        if (protagonist == null)
+            Debug.Log("protagonist == null");
         switch (ItemType)      
         {
             case enum_ToolType.Food:

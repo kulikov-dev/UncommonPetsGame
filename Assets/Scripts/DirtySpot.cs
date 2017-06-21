@@ -7,9 +7,15 @@ public class DirtySpot : MonoBehaviour, ICleanable {
     public DirtyRoom DirtyRoom;
     public SpriteRenderer SpotSprite;
 
+
+    private void OnMouseDown()
+    {
+        var protagonist = FindObjectOfType<SC_Protagonist>();
+        protagonist.OnMouseAction(this);
+    }
+
     public void Clean()
     {
-        Debug.Log("Clean dirty spot");
         if (DirtyRoom != null)
             DirtyRoom.DirtyLevelDown(this);
     }
