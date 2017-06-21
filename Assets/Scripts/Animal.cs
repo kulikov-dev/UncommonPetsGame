@@ -27,12 +27,12 @@ public class Animal : MonoBehaviour {
 
     public virtual void OnDeath()
     {
-        /*var deadAnimal = gameObject.GetComponent<DeadAnimal>();
+        var deadAnimal = gameObject.GetComponent<DeadAnimal>();
         if(deadAnimal != null)
         {
             deadAnimal.enabled = true;
             enabled = false;
-        }*/
+        }
     }
 
     public virtual void SelectNewTarget() //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
