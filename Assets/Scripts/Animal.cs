@@ -11,12 +11,12 @@ public class Animal : MonoBehaviour {
     public Transform Target = null;
     //Уровень на котором находится животное/девочка	
     public int Level = 0;
-    public float CheckTargetDistance;
-    public float Acceleration = 4.0f;
-    public float Velocity = 0.0f;
+    public float CheckTargetDistance;    
     public float ScaleFactor = 1.0f;
 
     private bool IsMoving = false;
+    private float Acceleration = 4.0f;
+    private float Velocity = 0.0f;
 
     /// <summary> Параметр здоровья у животного/девочки </summary>
     public float Health = 100f;

@@ -187,6 +187,7 @@ GameObject:
   - component: {fileID: 61982052243361512}
   - component: {fileID: 114946041841942192}
   - component: {fileID: 95493945599417138}
+  - component: {fileID: 82426221383435552}
   m_Layer: 0
   m_Name: Hippo
   m_TagString: Untagged
@@ -506,7 +507,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1847630022969038}
-  m_LocalRotation: {x: 0, y: 0, z: 0.24225345, w: 0.970213}
+  m_LocalRotation: {x: 0, y: 0, z: 0.24225333, w: 0.97021306}
   m_LocalPosition: {x: 0.42932773, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -519,7 +520,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1805772179562746}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7140911, w: 0.70005274}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7140909, w: 0.70005304}
   m_LocalPosition: {x: 0.7880188, y: 0.63990885, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -625,7 +626,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1968072132210876}
-  m_LocalRotation: {x: 0, y: 0, z: 0.68450195, w: 0.72901106}
+  m_LocalRotation: {x: 0, y: 0, z: 0.684502, w: 0.729011}
   m_LocalPosition: {x: -0.8848292, y: 0.249951, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -673,7 +674,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1270210030404088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.85, y: -3.87, z: -3.5}
+  m_LocalPosition: {x: -1.6468656, y: -3.88, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4624934908203574}
@@ -817,7 +818,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1365044641556110}
-  m_LocalRotation: {x: 0, y: 0, z: 0.59634966, w: 0.8027248}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5963495, w: 0.8027249}
   m_LocalPosition: {x: 1.095512, y: 0.57495654, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -964,6 +965,86 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.453993, y: 1.6781807}
   m_EdgeRadius: 0
+--- !u!82 &82426221383435552
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270210030404088}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bb244acbebc795f439b790483dfed0b8, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95493945599417138
 Animator:
   serializedVersion: 3
@@ -993,7 +1074,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.51773006
+  m_Length: 0.5177304
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4120733444226656}
   m_AttachedIK: {fileID: 0}
@@ -1044,16 +1125,16 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4801645072135888}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.5963498, w: 0.80272466}
+      solverRotation: {x: 0, y: 0, z: 0.5963495, w: 0.8027249}
       defaultLocalRotation: {x: 0, y: 0, z: 0.676827, w: 0.73614216}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4009029854218614}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.24225438, w: 0.97021276}
+      solverRotation: {x: 0, y: 0, z: 0.24225333, w: 0.97021306}
       defaultLocalRotation: {x: 0, y: 0, z: 0.056638107, w: 0.99839485}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 23.842001, y: -4.153, z: -3.5}
+    targetPosition: {x: -1.2548656, y: -4.453, z: -3.5}
     flip: 0
 --- !u!114 &114223418636074190
 MonoBehaviour:
@@ -1192,7 +1273,7 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4063382178766812}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.71409005, w: 0.7000539}
+      solverRotation: {x: 0, y: 0, z: 0.7140909, w: 0.70005304}
       defaultLocalRotation: {x: 0, y: 0, z: 0.82270026, w: 0.5684755}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4754828677106842}
@@ -1201,7 +1282,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: -0.13490184, w: 0.990859}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 24.229, y: -4.145, z: -3.5}
+    targetPosition: {x: -0.8678656, y: -4.445, z: -3.5}
     flip: 0
 --- !u!114 &114517185725087754
 MonoBehaviour:
@@ -1215,7 +1296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.2910336
+  m_Length: 0.29103366
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4754828677106842}
   m_AttachedIK: {fileID: 114471290473453120}
@@ -1298,16 +1379,16 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4423905165102316}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.6306333, w: 0.7760809}
+      solverRotation: {x: 0, y: 0, z: 0.63063353, w: 0.7760807}
       defaultLocalRotation: {x: 0, y: 0, z: 0.58153117, w: 0.81352407}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4445613965471208}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.24626184, w: 0.96920335}
+      solverRotation: {x: 0, y: 0, z: 0.24626112, w: 0.96920353}
       defaultLocalRotation: {x: 0, y: 0, z: 0.08445646, w: 0.9964272}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 25.721, y: -4.118, z: -3.5}
+    targetPosition: {x: 0.6241343, y: -4.418, z: -3.5}
     flip: 0
 --- !u!114 &114634524578854026
 MonoBehaviour:
@@ -1355,7 +1436,7 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4333848965680926}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.90562737, w: 0.4240743}
+      solverRotation: {x: 0, y: 0, z: 0.9056275, w: 0.42407408}
       defaultLocalRotation: {x: 0, y: 0, z: -0.9401713, w: -0.3407023}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4301614437509626}
@@ -1364,7 +1445,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: 0.03408363, w: 0.99941903}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 26.551, y: -3.3179998, z: -3.5}
+    targetPosition: {x: 1.4541342, y: -3.618, z: -3.5}
     flip: 0
 --- !u!114 &114701209471120036
 MonoBehaviour:
@@ -1394,7 +1475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.42932823
+  m_Length: 0.4293282
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4009029854218614}
   m_AttachedIK: {fileID: 114053415123439452}
@@ -1426,7 +1507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.1032041
+  m_Length: 1.1032043
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4871522796309840}
   m_AttachedIK: {fileID: 0}
@@ -1442,7 +1523,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.2599417
+  m_Length: 0.25994194
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4301614437509626}
   m_AttachedIK: {fileID: 114670907342259276}
@@ -1492,16 +1573,16 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4304295671030554}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.684501, w: 0.7290119}
+      solverRotation: {x: 0, y: 0, z: 0.684502, w: 0.729011}
       defaultLocalRotation: {x: 0, y: 0, z: 0.8258265, w: 0.56392425}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4899774294223112}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.15026404, w: 0.9886459}
+      solverRotation: {x: 0, y: 0, z: 0.15026087, w: 0.9886464}
       defaultLocalRotation: {x: 0, y: 0, z: -0.1612157, w: 0.9869192}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 25.961, y: -4.16, z: -3.5}
+    targetPosition: {x: 0.8641343, y: -4.46, z: -3.5}
     flip: 0
 --- !u!114 &114857683131833832
 MonoBehaviour:
@@ -1536,7 +1617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.318613
+  m_Length: 0.3186128
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4445613965471208}
   m_AttachedIK: {fileID: 114566547779727136}
@@ -1555,12 +1636,19 @@ MonoBehaviour:
   MaxAcceleration: 4
   Target: {fileID: 0}
   Level: 0
-  CheckTargetDistance: 2
-  Acceleration: 4
-  Velocity: 0
+  CheckTargetDistance: 1
   ScaleFactor: -1
   Health: 100
   Hunger: 0
+  DirtyLevel: 0
+  DirtyPerSecond: 0.1
+  DamageInRange: 20
+  RangeScaleFactor: 2
+  StomachFullnessPerFeed: 0.25
+  MaxPoopingTriesCount: 15
+  PoopingDuration: 0.2
+  DirtyRoomPrefab: {fileID: 1000540275876110, guid: ce816c57a7db5e54f8b32d6603aafba5,
+    type: 2}
 --- !u!114 &114953110978770268
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1607,13 +1695,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43257427963256952, guid: e7f3b66921f50624c9aad844374d07c0, type: 2}
   m_Bones:
   - {fileID: 4352696951992886}
   - {fileID: 4871522796309840}
@@ -1653,13 +1741,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43175381307947246, guid: 39614024d78f8834380c42541ecc08a0, type: 2}
   m_Bones:
   - {fileID: 4063382178766812}
   - {fileID: 4754828677106842}
@@ -1699,13 +1787,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43434256228506210, guid: 51c4ffbd4f5c6944d98999c06524a9ec, type: 2}
   m_Bones:
   - {fileID: 4333848965680926}
   - {fileID: 4301614437509626}
@@ -1745,13 +1833,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43234262934624600, guid: 55934c53d7c3eb64bbc9920e805996b9, type: 2}
   m_Bones:
   - {fileID: 4304295671030554}
   - {fileID: 4899774294223112}
@@ -1791,13 +1879,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43174250653717144, guid: 1bd2abf902e89ac448aa00d76699d1e9, type: 2}
   m_Bones:
   - {fileID: 4801645072135888}
   - {fileID: 4009029854218614}
@@ -1837,13 +1925,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43986196765649494, guid: ae7f0234e3abd5942a58fe3c6bd48e6c, type: 2}
   m_Bones:
   - {fileID: 4120733444226656}
   m_BlendShapeWeights: []
@@ -1882,13 +1970,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43996704857324650, guid: a5e86a0a31f619b47ab27ed122c2d208, type: 2}
   m_Bones:
   - {fileID: 4460603310352352}
   m_BlendShapeWeights: []
@@ -1927,13 +2015,13 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 43920641356457568, guid: 6236a2591727da84d9253abb5b378aa1, type: 2}
   m_Bones:
   - {fileID: 4423905165102316}
   - {fileID: 4445613965471208}

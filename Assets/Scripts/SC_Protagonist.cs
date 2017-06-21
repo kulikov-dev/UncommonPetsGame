@@ -77,6 +77,11 @@ public class SC_Protagonist : MonoBehaviour
                 if (touchable != null)
                     touchable.Touch();
                 break;
+            case enum_ToolType.Food:
+                var animal = item as Animal;
+                if (animal != null)
+                    animal.FeedCreature();
+                break;
         }
     }
 
