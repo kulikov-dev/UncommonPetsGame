@@ -24,6 +24,16 @@ public class Animal : MonoBehaviour {
     /// <summary> Прирост голода в секунду </summary>
     private float hungerPerSecond = 0.01f;
 
+    public virtual void OnDeath()
+    {
+        var deadAnimal = gameObject.GetComponent<DeadAnimal>();
+        if(deadAnimal != null)
+        {
+            deadAnimal.enabled = true;
+            enabled = false;
+        }
+    }
+
     public virtual void SelectNewTarget() //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
     {
         var rooms = GameObject.FindGameObjectsWithTag("Level_" + Level.ToString()); //Ищем комнату по этажу
@@ -109,8 +119,8 @@ public class Animal : MonoBehaviour {
             }
         }
 
-        if (Hunger != 1)          // прирост голода.
-            Hunger = Mathf.Clamp(Time.deltaTime * hungerPerSecond, 0, 1);
+        if (Hunger < 1.0f)          // прирост голода.
+            Hunger = Mathf.Clamp(Time.deltaTime * hungerPerSecond, 0.0f, 1.0f);
         if (Hunger > 0.5)
             ShowHungerMessage();
     }
@@ -140,6 +150,10 @@ public class Animal : MonoBehaviour {
     public virtual void GetDamage(float damage)
     {
         Health = Mathf.Clamp(Health - damage, 0, 100);
-        // TODO обработка смерти животного
+        if(Health <= 0.0f)
+        {
+            Health = 0.0f;
+            OnDeath();
+        }
     }
 }
