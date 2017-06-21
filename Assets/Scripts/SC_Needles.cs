@@ -1,25 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary> Иголки, которые дикообраз разбрасывает по комнатам </summary>
 public class SC_Needles : MonoBehaviour, ITouchable
 {
     /// <summary> Урон, которое получит существо, при встрече с иголкой </summary>
     public float Damage;
+    /// <summary> Ссылка на господина дикообразыча. </summary>
     public Animal Parent;
-
-    // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     private void OnMouseDown()
     {
@@ -36,6 +23,7 @@ public class SC_Needles : MonoBehaviour, ITouchable
         }
     }
 
+    /// <summary> Уничтожить иголки, при нажатии мышью </summary>
     void ITouchable.Touch()
     {
         Destroy(gameObject);
