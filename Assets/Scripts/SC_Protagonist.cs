@@ -79,11 +79,4 @@ public class SC_Protagonist : MonoBehaviour
                 break;
         }
     }
-
-    private enum enum_ToolType
-    {
-        Hand,
-        Shower,
-        Food
-    }
 }
