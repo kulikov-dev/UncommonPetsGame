@@ -14,6 +14,7 @@ public class Animal : MonoBehaviour {
     public float CheckTargetDistance;
     public float Acceleration = 4.0f;
     public float Velocity = 0.0f;
+    public float ScaleFactor = 1.0f;
 
     private bool IsMoving = false;
 
@@ -26,12 +27,12 @@ public class Animal : MonoBehaviour {
 
     public virtual void OnDeath()
     {
-        var deadAnimal = gameObject.GetComponent<DeadAnimal>();
+        /*var deadAnimal = gameObject.GetComponent<DeadAnimal>();
         if(deadAnimal != null)
         {
             deadAnimal.enabled = true;
             enabled = false;
-        }
+        }*/
     }
 
     public virtual void SelectNewTarget() //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
@@ -69,7 +70,7 @@ public class Animal : MonoBehaviour {
         if (Acceleration != 0.0f)
         {
             Acceleration = Acceleration * MaxAcceleration / Mathf.Abs(Acceleration);
-            if (Acceleration * transform.localScale.x < 0.0f)
+            if (Acceleration * (transform.localScale.x * ScaleFactor) < 0.0f)
                 transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
         }
         else

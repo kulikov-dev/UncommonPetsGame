@@ -11,12 +11,12 @@ public class Hippo : Animal, ICleanable
     }
 
     // Use this for initialization
-    void Start () {
-		
+    internal new void Start () {
+        base.Start();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+    // Update is called once per frame
+    internal new void Update () {
+        base.Update();
 	}
 }

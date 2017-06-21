@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 9fd50389b0b7e794fa2e6a63639c521e
-timeCreated: 1498062914
+timeCreated: 1498064981
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -122,12 +122,12 @@ TextureImporter:
       name: SpriteSheet02_2
       rect:
         serializedVersion: 2
-        x: 398
-        y: 472
-        width: 106
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 392.99997
+        y: 464.99683
+        width: 115.43085
+        height: 127.43085
+      alignment: 9
+      pivot: {x: 0.5024656, y: 0.5179529}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -135,12 +135,12 @@ TextureImporter:
       name: SpriteSheet02_3
       rect:
         serializedVersion: 2
-        x: 372
-        y: 351
-        width: 85
-        height: 66
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 370.4337
+        y: 348.42923
+        width: 87.566315
+        height: 58.7854
+      alignment: 9
+      pivot: {x: 0.5032336, y: 0.60509527}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -148,12 +148,12 @@ TextureImporter:
       name: SpriteSheet02_4
       rect:
         serializedVersion: 2
-        x: 464
-        y: 341
-        width: 55
-        height: 91
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 462.00003
+        y: 339.59665
+        width: 53.164764
+        height: 88.04538
+      alignment: 9
+      pivot: {x: 0.55487823, y: 0.53271794}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -161,12 +161,12 @@ TextureImporter:
       name: SpriteSheet02_5
       rect:
         serializedVersion: 2
-        x: 529
-        y: 327
-        width: 63
-        height: 101
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 531.4164
+        y: 324.8
+        width: 61.78363
+        height: 100.899994
+      alignment: 9
+      pivot: {x: 0.47073337, y: 0.52229947}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -174,12 +174,12 @@ TextureImporter:
       name: SpriteSheet02_6
       rect:
         serializedVersion: 2
-        x: 598
-        y: 343
-        width: 66
-        height: 88
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 594.4444
+        y: 340.3333
+        width: 69.777954
+        height: 91.22229
+      alignment: 9
+      pivot: {x: 0.5238847, y: 0.5115711}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -188,11 +188,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 665
-        y: 318
-        width: 71
-        height: 118
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        y: 315.41315
+        width: 65.27545
+        height: 126.58688
+      alignment: 9
+      pivot: {x: 0.5438492, y: 0.48651844}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -200,12 +200,12 @@ TextureImporter:
       name: SpriteSheet02_8
       rect:
         serializedVersion: 2
-        x: 740
-        y: 365
-        width: 58
-        height: 68
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 737.7828
+        y: 366.23923
+        width: 59.417236
+        height: 65.13458
+      alignment: 9
+      pivot: {x: 0.52539, y: 0.5029705}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -213,12 +213,12 @@ TextureImporter:
       name: SpriteSheet02_9
       rect:
         serializedVersion: 2
-        x: 505
-        y: 442
-        width: 351
-        height: 158
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 500.4548
+        y: 436.0936
+        width: 355.5452
+        height: 163.9064
+      alignment: 9
+      pivot: {x: 0.5063918, y: 0.5180176}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -393,6 +393,6 @@ TextureImporter:
       tessellationDetail: 0
     outline: []
   spritePackingTag: 
-  userData: 
+  userData: 98177185979150
   assetBundleName: 
   assetBundleVariant: 
