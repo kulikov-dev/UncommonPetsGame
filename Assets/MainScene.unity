@@ -1838,7 +1838,7 @@ Prefab:
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
       propertyPath: Animals.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4776290242927238, guid: 7a48a610808941f4281afef1fc11285e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1876,13 +1876,13 @@ Prefab:
         type: 2}
       propertyPath: Animals.Array.data[0]
       value: 
-      objectReference: {fileID: 1270210030404088, guid: 5df29583dcac6d94bba9dffd8c1b5d51,
+      objectReference: {fileID: 1204810648692606, guid: 26147e77f0afe8d4387f00f28d370d81,
         type: 2}
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
       propertyPath: Animals.Array.data[1]
       value: 
-      objectReference: {fileID: 1256927629557378, guid: 5eee7621bedc42c4ca2cba840a7f0b80,
+      objectReference: {fileID: 1255488999919516, guid: 5df29583dcac6d94bba9dffd8c1b5d51,
         type: 2}
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
@@ -1893,7 +1893,7 @@ Prefab:
         type: 2}
       propertyPath: Animals.Array.data[2]
       value: 
-      objectReference: {fileID: 1509416987022528, guid: 26147e77f0afe8d4387f00f28d370d81,
+      objectReference: {fileID: 1303244759589978, guid: 5eee7621bedc42c4ca2cba840a7f0b80,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a48a610808941f4281afef1fc11285e, type: 2}
