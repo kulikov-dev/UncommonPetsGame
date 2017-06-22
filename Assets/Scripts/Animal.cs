@@ -1,8 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Animal : MonoBehaviour {
+public class Animal : MonoBehaviour
+{
 
     //Параметры движения	
     public float MaxVelocity = 2f;
@@ -11,7 +10,7 @@ public class Animal : MonoBehaviour {
     public Transform Target = null;
     //Уровень на котором находится животное/девочка	
     public int Level = 0;
-    public float CheckTargetDistance;    
+    public float CheckTargetDistance = 1f;
     public float ScaleFactor = 1.0f;
 
     private bool IsMoving = false;
@@ -20,15 +19,17 @@ public class Animal : MonoBehaviour {
 
     /// <summary> Параметр здоровья у животного/девочки </summary>
     public float Health = 100f;
+
+    public SpriteRenderer HungerSprite;
     /// <summary> Голод изменяется в промежутке от 0 до 1, если голод больше 0.5 то показывать индикатор, что пора кормить животное </summary>
     public float Hunger = 0f;
     /// <summary> Прирост голода в секунду </summary>
-    private float hungerPerSecond = 0.01f;
+    private float hungerPerSecond = 0.05f;
 
     public virtual void OnDeath()
     {
         var deadAnimal = gameObject.GetComponent<DeadAnimal>();
-        if(deadAnimal != null)
+        if (deadAnimal != null)
         {
             deadAnimal.enabled = true;
             enabled = false;
@@ -57,7 +58,7 @@ public class Animal : MonoBehaviour {
                 {
                     SetTarget(room.TargetPoints[0]);
                 }
-                
+
             }
         }
     }
@@ -114,21 +115,34 @@ public class Animal : MonoBehaviour {
                 Target = null;
                 //Если не удалось телепортироваться, выбираем себе другую цель
                 if ((teleport == null || !teleport.TeleportAnimal(this)) && NeedSelectNewTarget(oldTarget))
-                {                    
+                {
                     SelectNewTarget();
                 }
             }
         }
 
         if (Hunger < 1.0f)          // прирост голода.
-            Hunger = Mathf.Clamp(Time.deltaTime * hungerPerSecond, 0.0f, 1.0f);
-        if (Hunger > 0.5)
-            ShowHungerMessage();
+            Hunger += Mathf.Clamp(Time.deltaTime * hungerPerSecond, 0.0f, 1.0f);
+
+        if (HungerSprite != null)
+            UpdateHungrySprite();
     }
 
     private bool CheckDistance(Transform targetTransform)
     {
         return Mathf.Abs(targetTransform.position.x - transform.position.x) < CheckTargetDistance;
+    }
+
+    private void UpdateHungrySprite()
+    {
+        var hunger = Hunger * 2.0f;
+        //spritecolor - это цвет спрайта индикатора
+        //yellow, green, red - цвета, между которыми будет плавно меняться цвет индикатора
+        if (hunger > 1.0f)
+            HungerSprite.color = Color.Lerp(Color.yellow, Color.red, hunger - 1.0f);
+        else
+            HungerSprite.color = Color.Lerp(Color.green, Color.yellow, hunger);
+
     }
 
     /// <summary> Покормить создание </summary>
@@ -151,7 +165,7 @@ public class Animal : MonoBehaviour {
     public virtual void GetDamage(float damage)
     {
         Health = Mathf.Clamp(Health - damage, 0, 100);
-        if(Health <= 0.0f)
+        if (Health <= 0.0f)
         {
             Health = 0.0f;
             OnDeath();

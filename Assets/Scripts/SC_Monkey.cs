@@ -11,6 +11,8 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     private SC_BaseMonkeyItem ItemInHand = null;
     public Transform MonkeyHandTransform;
 
+    private SC_Bubble bubble;
+
     private float LastStealingTime;
     /// <summary> Время в течении которого точно не начнет таскать  предметы </summary>
     private float TimeBeforeNewStealing = 5f;
@@ -21,6 +23,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     {
         base.Start();
 
+        bubble = gameObject.GetComponentInChildren<SC_Bubble>();
         LastStealingTime = Time.time;
     }
 
@@ -28,6 +31,8 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     void ICleanable.Clean()
     {
         SelectNewTarget();
+
+        bubble.Hide();
     }
 
     /// <summary> Метод “нажатие мышью” - вызывается, когда на животное ткнули мышью. при наличии предмета, заставляет обезьяну бросить его. </summary>
@@ -61,6 +66,8 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
             ItemInHand = newItemPoint;
             ItemInHand.GetItem(MonkeyHandTransform);
 
+            bubble.Hide();
+
             LastStealingTime = Time.time;
             return base.NeedSelectNewTarget(oldTarget);
         }
@@ -73,9 +80,10 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
                 for (var i = random; i < items.Length + random; i++)
                 {
                     var item = items[i % items.Length];
-                    if (Level == item.ItemLevel && item.IsOnPlace)
+                    if (Level == item.ItemLevel)
                     {
                         Debug.Log("Go and steal items!");
+                        bubble.Show();
                         SetTarget(item.transform);
                         return false;
                     }

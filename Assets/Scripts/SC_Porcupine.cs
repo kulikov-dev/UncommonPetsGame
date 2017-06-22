@@ -10,6 +10,7 @@ public class SC_Porcupine : Animal, ICleanable
     private Coroutine C_Gnawing;
     
     public GameObject P_Needles;
+    private SC_Bubble bubble;
 
     private bool isGnawing;
 
@@ -25,6 +26,7 @@ public class SC_Porcupine : Animal, ICleanable
     internal new void Start()
     {
         base.Start();
+        bubble = gameObject.GetComponentInChildren<SC_Bubble>();
 
         StartDropNeedles();
         LastGnowingTime = Time.time;
@@ -68,6 +70,7 @@ public class SC_Porcupine : Animal, ICleanable
             if (Level == 1 && newEnergyPoint != null && !newEnergyPoint.IsLightBroken && UnityEngine.Random.value < Mathf.Min((Time.time - LastGnowingTime - TimeBeforeNewGnowing) / NewGnowingTime, 1.0f))
             {
                 Debug.Log("Go gnowing");
+                bubble.Show();
                 currentPointEnergy = newEnergyPoint;
                 SetTarget(newEnergyPoint.transform);
                 return false;
@@ -97,6 +100,7 @@ public class SC_Porcupine : Animal, ICleanable
         {
             yield return new WaitForSeconds(duration);
             isGnawing = false;
+            bubble.Hide();
             currentPointEnergy.DestroyEnergy();
             currentPointEnergy = null;
             StopCoroutine(C_Gnawing);
