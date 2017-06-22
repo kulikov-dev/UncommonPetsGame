@@ -1,10 +1,13 @@
-﻿using System;
+﻿using Anima2D;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Hippo : Animal, ICleanable
 {
+    ///<summary>Цвет бегемота, которого надо облить</summary>
+    public Color DirtyColor = Color.red;
     ///<summary>Насколько грязный бегемот</summary>
     public float DirtyLevel = 0.0f;
     ///<summary>Насколько сильно марвется в секунду</summary>
@@ -33,7 +36,10 @@ public class Hippo : Animal, ICleanable
     /// <summary>Наполненность желудка</summary>
     private float StomachFullness = 0.0f;
 
+    private Animator HippoAnimator;
+
     private AudioSource PoopsSoundSource;
+    private SpriteMeshInstance[] HippoSprites;
 
     public override void FeedCreature()
     {
@@ -53,6 +59,7 @@ public class Hippo : Animal, ICleanable
         if (IsInRageMode || IsPooping)
             return false;
         IsInRageMode = true;
+        HippoAnimator.SetBool("IsInRage", true);
         MaxVelocity = DefaultMaxVecity * RangeScaleFactor;
         MaxAcceleration = DefaultMaxAcceleration * RangeScaleFactor * RangeScaleFactor;
         return true;
@@ -61,6 +68,7 @@ public class Hippo : Animal, ICleanable
     public void StopRageMode()
     {
         IsInRageMode = false;
+        HippoAnimator.SetBool("IsInRage", false);
         MaxVelocity = DefaultMaxVecity;
         MaxAcceleration = DefaultMaxAcceleration;
     }
@@ -79,7 +87,8 @@ public class Hippo : Animal, ICleanable
     private void StartPooping(RoomScript room)
     {
         IsPooping = true;
-        if(PoopsSoundSource != null)
+        HippoAnimator.SetBool("IsPooping", true);
+        if (PoopsSoundSource != null)
         {
             PoopsSoundSource.loop = true;
             PoopsSoundSource.Play();
@@ -110,6 +119,7 @@ public class Hippo : Animal, ICleanable
     private void StopPooping()
     {
         IsPooping = false;
+        HippoAnimator.SetBool("IsPooping", false);
         if (PoopsSoundSource != null)
         {
             PoopsSoundSource.Stop();
@@ -139,6 +149,8 @@ public class Hippo : Animal, ICleanable
         DefaultMaxVecity = MaxVelocity;
         DefaultMaxAcceleration = MaxAcceleration;
         PoopsSoundSource = GetComponent<AudioSource>();
+        HippoAnimator = GetComponent<Animator>();
+        HippoSprites = GetComponentsInChildren<SpriteMeshInstance>();
     }
 
     // Update is called once per frame
@@ -154,6 +166,11 @@ public class Hippo : Animal, ICleanable
                 if (!StartRageMode())
                     DirtyLevel = 0.9f;
             }
-        }        
+        }
+        Color hippoColor = Color.Lerp(Color.white, DirtyColor, DirtyLevel);
+        foreach(var sprite in HippoSprites)
+        {
+            sprite.color = hippoColor;
+        }
     }
 }
