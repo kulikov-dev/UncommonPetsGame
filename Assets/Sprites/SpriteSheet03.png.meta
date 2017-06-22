@@ -1,0 +1,552 @@
+fileFormatVersion: 2
+guid: 4171ca5285a733b4aabc2ec7cc0b80a9
+timeCreated: 1498158981
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SpriteSheet03_0
+    21300002: SpriteSheet03_1
+    21300004: SpriteSheet03_2
+    21300006: SpriteSheet03_3
+    21300008: SpriteSheet03_4
+    21300010: SpriteSheet03_5
+    21300012: SpriteSheet03_6
+    21300014: SpriteSheet03_7
+    21300016: SpriteSheet03_8
+    21300018: SpriteSheet03_9
+    21300020: SpriteSheet03_10
+    21300022: SpriteSheet03_11
+    21300024: SpriteSheet03_12
+    21300026: SpriteSheet03_13
+    21300028: SpriteSheet03_14
+    21300030: SpriteSheet03_15
+    21300032: SpriteSheet03_16
+    21300034: SpriteSheet03_17
+    21300036: SpriteSheet03_18
+    21300038: SpriteSheet03_19
+    21300040: SpriteSheet03_20
+    21300042: SpriteSheet03_21
+    21300044: SpriteSheet03_22
+    21300046: SpriteSheet03_23
+    21300048: SpriteSheet03_24
+    21300050: SpriteSheet03_25
+    21300052: SpriteSheet03_26
+    21300054: SpriteSheet03_27
+    21300056: SpriteSheet03_28
+    21300058: SpriteSheet03_29
+    21300060: SpriteSheet03_30
+    21300062: SpriteSheet03_31
+    21300064: SpriteSheet03_32
+    21300066: SpriteSheet03_33
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpriteSheet03_0
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 527
+        width: 308
+        height: 485
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_1
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 526
+        width: 324
+        height: 486
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 810
+        width: 272
+        height: 171
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_3
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 636
+        width: 327
+        height: 174
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 14, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_4
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 537
+        width: 136
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_5
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 547
+        width: 42
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_6
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 553
+        width: 70
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_7
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 532
+        width: 78
+        height: 95
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_8
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 404
+        width: 187
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_9
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 385
+        width: 40
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_10
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 404
+        width: 102
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_11
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 402
+        width: 221
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_12
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 424
+        width: 70
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_13
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 407
+        width: 65
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_14
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 422
+        width: 120
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_15
+      rect:
+        serializedVersion: 2
+        x: 870
+        y: 222
+        width: 154
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_16
+      rect:
+        serializedVersion: 2
+        x: 699
+        y: 305
+        width: 169
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_17
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 165
+        width: 162
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_18
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 0
+        width: 90
+        height: 216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_19
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 158
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_20
+      rect:
+        serializedVersion: 2
+        x: 958
+        y: 111
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_21
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 115
+        width: 27
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_22
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 57
+        width: 65
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_23
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 8
+        width: 21
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_24
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 9
+        width: 28
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_25
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 25
+        width: 109
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_26
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 16
+        width: 188
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_27
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 239
+        width: 254
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_28
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 310
+        width: 318
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_29
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 264
+        width: 415
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_30
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 52
+        width: 79
+        height: 160
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_31
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 48
+        width: 99
+        height: 162
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_32
+      rect:
+        serializedVersion: 2
+        x: 212
+        y: 24
+        width: 229
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: SpriteSheet03_33
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 16
+        width: 186
+        height: 157
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

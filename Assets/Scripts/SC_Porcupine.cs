@@ -35,6 +35,14 @@ public class SC_Porcupine : Animal, ICleanable
         PorcupineAnimator = GetComponent<Animator>();
     }
 
+    private void SetIsGnawing(bool newValue)
+    {
+        isGnawing = newValue;
+        PorcupineAnimator.SetBool("IsGnowing", isGnawing);
+        if(!isGnawing)
+            bubble.Hide();
+    }
+
     void ICleanable.Clean()
     {
         if (isGnawing)
@@ -44,8 +52,7 @@ public class SC_Porcupine : Animal, ICleanable
 
             StartDropNeedles();     // начнем снова сбрасывать иголки, с горя.
             SelectNewTarget();      // отправим слоняться в другое место. 
-            isGnawing = false;
-            PorcupineAnimator.SetBool("IsGnowing", false);
+            SetIsGnawing(false);
 
             Debug.Log("Go away, porcupine :(");
         }
@@ -104,8 +111,8 @@ public class SC_Porcupine : Animal, ICleanable
         while (true) // stopping condition?
         {
             yield return new WaitForSeconds(duration);
-            isGnawing = false;
-bubble.Hide();PorcupineAnimator.SetBool("IsGnowing", false);            currentPointEnergy.DestroyEnergy();
+            SetIsGnawing(false);
+            currentPointEnergy.DestroyEnergy();
             currentPointEnergy = null;
             StopCoroutine(C_Gnawing);
             StartDropNeedles();
