@@ -33,6 +33,10 @@ public class Animal : MonoBehaviour {
             deadAnimal.enabled = true;
             enabled = false;
         }
+
+       /* var animator = GetComponent<Animator>();
+        if (animator != null)
+            animator.SetBool("IsDead", true);*/
     }
 
     public virtual void SelectNewTarget() //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
@@ -47,8 +51,10 @@ public class Animal : MonoBehaviour {
                 if (room.TargetPoints.Length > 1)
                 {
                     var newTarget = room.TargetPoints[Random.Range(0, room.TargetPoints.Length)];
-                    while (CheckDistance(newTarget))
+                    for (int i = 0; i < room.TargetPoints.Length; ++i)
                     {
+                        if (!CheckDistance(newTarget))
+                            break;
                         newTarget = room.TargetPoints[Random.Range(0, room.TargetPoints.Length)];
                     }
                     SetTarget(newTarget);
@@ -57,7 +63,7 @@ public class Animal : MonoBehaviour {
                 {
                     SetTarget(room.TargetPoints[0]);
                 }
-                
+
             }
         }
     }

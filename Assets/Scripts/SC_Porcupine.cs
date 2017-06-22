@@ -22,12 +22,15 @@ public class SC_Porcupine : Animal, ICleanable
     /// <summary> Показывает, что дикообраз грызет проводку </summary>
     private SC_PointEnergy currentPointEnergy;
 
+    private Animator PorcupineAnimator;
+
     internal new void Start()
     {
         base.Start();
 
         StartDropNeedles();
         LastGnowingTime = Time.time;
+        PorcupineAnimator = GetComponent<Animator>();
     }
 
     void ICleanable.Clean()
@@ -40,6 +43,7 @@ public class SC_Porcupine : Animal, ICleanable
             StartDropNeedles();     // начнем снова сбрасывать иголки, с горя.
             SelectNewTarget();      // отправим слоняться в другое место. 
             isGnawing = false;
+            PorcupineAnimator.SetBool("IsGnowing", false);
 
             Debug.Log("Go away, porcupine :(");
         }
@@ -56,9 +60,10 @@ public class SC_Porcupine : Animal, ICleanable
         if (newEnergyPoint != null)
         {
             Debug.Log("Start gnowing");
-            isGnawing = true;
+            isGnawing = true;            
             StopCoroutine(C_DropNeedles);
             C_Gnawing = StartCoroutine(DestroyEnergyFunc(4));
+            PorcupineAnimator.SetBool("IsGnowing", true);
             LastGnowingTime = Time.time;
             return false;
         }
@@ -97,6 +102,7 @@ public class SC_Porcupine : Animal, ICleanable
         {
             yield return new WaitForSeconds(duration);
             isGnawing = false;
+            PorcupineAnimator.SetBool("IsGnowing", false);
             currentPointEnergy.DestroyEnergy();
             currentPointEnergy = null;
             StopCoroutine(C_Gnawing);
