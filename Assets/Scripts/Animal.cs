@@ -20,12 +20,12 @@ public class Animal : MonoBehaviour
 
     /// <summary> Параметр здоровья у животного/девочки </summary>
     public float Health = 100f;
+    public SC_Hungry HungryIcon;
 
-    public SpriteRenderer HungerSprite;
     /// <summary> Голод изменяется в промежутке от 0 до 1, если голод больше 0.5 то показывать индикатор, что пора кормить животное </summary>
     public float Hunger = 0f;
     /// <summary> Прирост голода в секунду </summary>
-    private float hungerPerSecond = 0.05f;
+    public float HungerPerSecond = 1f;//0.05f;
 
     /*NEW*/
     /// <summary> Насколько снижать рассудок девочке при смерти </summary>
@@ -38,15 +38,18 @@ public class Animal : MonoBehaviour
     private Coroutine C_HungryDamage;
 
     public GameObject BloodyRoomPrefab;
+
     /*NEW*/
 
     public virtual void OnDeath()
     {
-        var deadAnimal = gameObject.GetComponent<DeadAnimal>();
+        var deadAnimal = gameObject.GetComponent<SC_DeadAnimal>();
         if (deadAnimal != null)
         {
-            deadAnimal.enabled = true;            
-            enabled = false;
+            if (HungryIcon != null)
+                HungryIcon.Hide();
+
+            deadAnimal.enabled = true;
 
             /*NEW*/
             SetIsHungry(false);
@@ -56,7 +59,7 @@ public class Animal : MonoBehaviour
                 animator.SetBool("IsDead", true);
             //Если девочка еще не ушла, отнимаем у нее рассудок, иначе проверяем условие победы
             var girl = FindObjectOfType<Girl>();
-            if(girl.IsLeftHouse)
+            if (girl.IsLeftHouse)
             {
                 var protagonist = FindObjectOfType<SC_Protagonist>();
                 protagonist.ChackVictoryConditions();
@@ -64,7 +67,7 @@ public class Animal : MonoBehaviour
             else
             {
                 girl.ReduceReasonLevel(DeclineOfMindValue);
-            }            
+            }
             /*NEW*/
         }
     }
@@ -72,10 +75,10 @@ public class Animal : MonoBehaviour
     /*NEW*/
     public void Kill()
     {
-        if(Health > 0)
+        if (Health > 0)
         {
-            GetDamage(100.0f);            
-            
+            GetDamage(100.0f);
+
             if (BloodyRoomPrefab != null)
             {
                 //Вот тут надо создать комнату с кровищей, но для этого нужно понять в какой мы комнате
@@ -87,8 +90,8 @@ public class Animal : MonoBehaviour
                     float minDist = Vector3.Distance(transform.position, currentRoom.transform.position);
                     for (int i = 1; i < rooms.Length; ++i)
                     {
-                        var  distance = Vector3.Distance(transform.position, currentRoom.transform.position);
-                        if(distance < minDist)
+                        var distance = Vector3.Distance(transform.position, currentRoom.transform.position);
+                        if (distance < minDist)
                         {
                             minDist = distance;
                             currentRoom = rooms[i];
@@ -171,6 +174,8 @@ public class Animal : MonoBehaviour
     internal void Start()
     {
         StartMoving();
+
+        HungryIcon = gameObject.GetComponentInChildren<SC_Hungry>();
     }
 
     public virtual bool NeedSelectNewTarget(Transform oldTarget)
@@ -200,13 +205,13 @@ public class Animal : MonoBehaviour
         }
 
         if (Hunger < 1.0f)          // прирост голода.
-            Hunger += Mathf.Clamp(Time.deltaTime * hungerPerSecond, 0.0f, 1.0f);
+            Hunger += Mathf.Clamp(Time.deltaTime * HungerPerSecond, 0.0f, 1.0f);
         /*NEW*/
         else
             SetIsHungry(true);
         /*NEW*/
 
-        if (HungerSprite != null)
+        if (HungryIcon != null)
             UpdateHungrySprite();
     }
 
@@ -221,9 +226,9 @@ public class Animal : MonoBehaviour
         //spritecolor - это цвет спрайта индикатора
         //yellow, green, red - цвета, между которыми будет плавно меняться цвет индикатора
         if (hunger > 1.0f)
-            HungerSprite.color = Color.Lerp(Color.yellow, Color.red, hunger - 1.0f);
+            HungryIcon.BackgroundSprite.color = Color.Lerp(Color.yellow, Color.red, hunger - 1.0f);
         else
-            HungerSprite.color = Color.Lerp(Color.green, Color.yellow, hunger);
+            HungryIcon.BackgroundSprite.color = Color.Lerp(Color.green, Color.yellow, hunger);
 
     }
 
@@ -232,7 +237,7 @@ public class Animal : MonoBehaviour
     {
         Hunger = 0f;
         /*NEW*/
-        SetIsHungry(false);        
+        SetIsHungry(false);
         /*NEW*/
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadAnimal : MonoBehaviour {
+public class SC_DeadAnimal : MonoBehaviour {
 
     /*NEW*/
     public float DeclineOfMindValue = 5.0f;
