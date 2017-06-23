@@ -37,14 +37,19 @@ public class SC_PointEnergy : MonoBehaviour, ICleanable
 
     }
 
+    private void SetIsLightBroken(bool newValue)
+    {
+        IsLightBroken = newValue;
+        var dayNightController = FindObjectOfType<DayNightController>();
+        dayNightController.SetLightOn(!newValue);
+    }
+
     /// <summary> Проводка сломана 
     /// отмечает контроллеру дня и ночи, что свет в доме не работает
     /// </summary>
     public void DestroyEnergy()
     {
-        IsLightBroken = true;
-        var dayNightController = FindObjectOfType<DayNightController>();
-        dayNightController.SetLightOn(false);
+        SetIsLightBroken(true);        
     }
 
     void ICleanable.Clean()
@@ -60,7 +65,7 @@ public class SC_PointEnergy : MonoBehaviour, ICleanable
                 break;
             case 0:
                 FireSprite.enabled = false;
-                IsLightBroken = false;
+                SetIsLightBroken(false);
                 break;
         }
 
