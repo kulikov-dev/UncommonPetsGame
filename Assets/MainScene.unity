@@ -710,6 +710,11 @@ Prefab:
       propertyPath: ButtonGun
       value: 
       objectReference: {fileID: 707129333}
+    - target: {fileID: 114138020612826442, guid: 4fcc8d5093fb58244beeb969d3fa0563,
+        type: 2}
+      propertyPath: GunCursorTexture
+      value: 
+      objectReference: {fileID: 2800000, guid: 2d4000db2b092c345bad6c7957faedd2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fcc8d5093fb58244beeb969d3fa0563, type: 2}
   m_IsPrefabParent: 0
@@ -741,7 +746,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsLightOn: 1
-  DailyCycleTime: 30
+  DailyCycleTime: 40
   DayIndicatorOffset: {x: 0, y: 0, z: 0}
   DaysLeft: 5
 --- !u!4 &210357433
@@ -949,7 +954,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 417825219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.29, y: 1.59, z: 0}
+  m_LocalPosition: {x: -5.08, y: 1.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1027486273}
@@ -1539,7 +1544,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1465375212}
-        m_MethodName: SetActionFood
+        m_MethodName: SetActionGun
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1840,7 +1845,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 796247377}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.46, y: 1.55, z: 0}
+  m_LocalPosition: {x: 8.35, y: 1.55, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1027486273}
@@ -2100,7 +2105,7 @@ Prefab:
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
       propertyPath: Animals.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4776290242927238, guid: 7a48a610808941f4281afef1fc11285e, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2138,13 +2143,13 @@ Prefab:
         type: 2}
       propertyPath: Animals.Array.data[0]
       value: 
-      objectReference: {fileID: 1945356463890276, guid: 26147e77f0afe8d4387f00f28d370d81,
+      objectReference: {fileID: 1216492600201942, guid: 5eee7621bedc42c4ca2cba840a7f0b80,
         type: 2}
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
       propertyPath: Animals.Array.data[1]
       value: 
-      objectReference: {fileID: 1248044023061068, guid: 5df29583dcac6d94bba9dffd8c1b5d51,
+      objectReference: {fileID: 1945356463890276, guid: 26147e77f0afe8d4387f00f28d370d81,
         type: 2}
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
@@ -2155,11 +2160,17 @@ Prefab:
         type: 2}
       propertyPath: Animals.Array.data[2]
       value: 
-      objectReference: {fileID: 1216492600201942, guid: 5eee7621bedc42c4ca2cba840a7f0b80,
+      objectReference: {fileID: 1474949688168918, guid: 309331462240fbf4d935845afc4ea5a5,
         type: 2}
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
       propertyPath: Animals.Array.data[3]
+      value: 
+      objectReference: {fileID: 1248044023061068, guid: 5df29583dcac6d94bba9dffd8c1b5d51,
+        type: 2}
+    - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
+        type: 2}
+      propertyPath: Animals.Array.data[4]
       value: 
       objectReference: {fileID: 1021659297469806, guid: eb5c621406b992d43b32791576e896a5,
         type: 2}
@@ -2975,7 +2986,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1567332405}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.73, y: 1.58, z: 0}
+  m_LocalPosition: {x: 11.39, y: 1.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1027486273}

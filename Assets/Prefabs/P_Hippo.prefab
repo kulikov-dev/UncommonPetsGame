@@ -1606,15 +1606,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0055066bbbebc4c923673e86ac49b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxVelocity: 2
-  MaxAcceleration: 4
+  MaxVelocity: 1.5
+  MaxAcceleration: 6
   Target: {fileID: 0}
   Level: 0
-  CheckTargetDistance: 1
+  CheckTargetDistance: 2
   ScaleFactor: -1
   SpawnHeight: 0
   Health: 100
-  HungryIcon: {fileID: 0}
   Hunger: 0
   HungerPerSecond: 0.05
   DeclineOfMindValue: 25

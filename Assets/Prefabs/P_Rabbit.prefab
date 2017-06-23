@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 114968238165260204}
   - component: {fileID: 61281437307138854}
   - component: {fileID: 50935324203161684}
+  - component: {fileID: 114019483308770844}
   m_Layer: 0
   m_Name: P_Rabbit
   m_TagString: Untagged
@@ -357,6 +358,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.83166826, y: 0.8148346}
   m_EdgeRadius: 0
+--- !u!114 &114019483308770844
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021659297469806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 337cf647585de8c42b6d1ba3cb604ffc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DeclineOfMindValue: 5
 --- !u!114 &114355729772680842
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,7 +401,6 @@ MonoBehaviour:
   ScaleFactor: -1
   SpawnHeight: -0.3
   Health: 100
-  HungryIcon: {fileID: 0}
   Hunger: 0
   HungerPerSecond: 0.05
   DeclineOfMindValue: 25
