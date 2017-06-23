@@ -78,7 +78,7 @@ public class Hippo : Animal, ICleanable
         if (!IsInRageMode)
             return;
         var otherAnimal = other.gameObject.GetComponent<Animal>();
-        if(otherAnimal != null)
+        if (otherAnimal != null)
         {
             otherAnimal.GetDamage(DamageInRange);
         }
@@ -105,7 +105,7 @@ public class Hippo : Animal, ICleanable
     }
 
     IEnumerator PoopingFunc(DirtyRoom dirtyRoom)
-    {        
+    {
         for (int i = 0; i < MaxPoopingTriesCount; ++i) // stopping condition?
         {
             yield return new WaitForSeconds(PoopingDuration);
@@ -124,16 +124,17 @@ public class Hippo : Animal, ICleanable
         {
             PoopsSoundSource.Stop();
         }
-        SelectNewTarget();
+        if (Health != 0)
+            SelectNewTarget();
         StomachFullness = 0.0f;
     }
 
     public override bool NeedSelectNewTarget(Transform oldTarget)
     {
-        if(StomachFullness >= 1.0f && !IsInRageMode && oldTarget.parent != null)
+        if (StomachFullness >= 1.0f && !IsInRageMode && oldTarget.parent != null)
         {
             var room = oldTarget.parent.gameObject.GetComponent<RoomScript>();
-            if(room != null && room.GetComponentInChildren<DirtyRoom>() == null)
+            if (room != null && room.GetComponentInChildren<DirtyRoom>() == null)
             {
                 StartPooping(room);
                 return false;
@@ -144,7 +145,8 @@ public class Hippo : Animal, ICleanable
     }
 
     // Use this for initialization
-    internal new void Start () {
+    internal new void Start()
+    {
         base.Start();
         DefaultMaxVecity = MaxVelocity;
         DefaultMaxAcceleration = MaxAcceleration;
@@ -154,10 +156,11 @@ public class Hippo : Animal, ICleanable
     }
 
     // Update is called once per frame
-    internal new void Update () {
+    internal new void Update()
+    {
         base.Update();
 
-        if(DirtyLevel < 1.0f)
+        if (DirtyLevel < 1.0f)
         {
             DirtyLevel += DirtyPerSecond * Time.deltaTime;
             if (DirtyLevel > 1.0f)
@@ -168,7 +171,7 @@ public class Hippo : Animal, ICleanable
             }
         }
         Color hippoColor = Color.Lerp(Color.white, DirtyColor, DirtyLevel);
-        foreach(var sprite in HippoSprites)
+        foreach (var sprite in HippoSprites)
         {
             sprite.color = hippoColor;
         }
@@ -177,6 +180,7 @@ public class Hippo : Animal, ICleanable
     public override void OnDeath()
     {
         StopAllCoroutines();
+        StopPooping();
         base.OnDeath();
     }
 }
