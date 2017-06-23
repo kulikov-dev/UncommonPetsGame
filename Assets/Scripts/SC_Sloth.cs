@@ -16,6 +16,7 @@ public class SC_Sloth : Animal
 
     /*NEW*/
     private bool IsSlipping = false;
+    private Animator SlothAnimator;
     /*NEW*/
 
     // Use this for initialization
@@ -24,6 +25,7 @@ public class SC_Sloth : Animal
         base.Start();
 
         bubble = gameObject.GetComponentInChildren<SC_Bubble>();
+        SlothAnimator = GetComponent<Animator>();
         LastSleepTime = Time.time;
     }
 
@@ -33,16 +35,14 @@ public class SC_Sloth : Animal
         if (newItemPoint != null)
         {
             bubble.Show();
-            /*NEW*/
-            IsSlipping = false;
+
             //Все делать анимацией а не трансформом
-            /*NEW*/
+            if (SlothAnimator != null)
+                SlothAnimator.SetBool("IsSlipping", true);
+            //Debug.Log(newItemPoint.gameObject.transform.position);
 
-            // TODO висит на вентиляторе
-            Debug.Log(newItemPoint.gameObject.transform.position);
-
-            gameObject.transform.position = newItemPoint.SlothPoint.position;
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, -gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            //gameObject.transform.position = newItemPoint.SlothPoint.position;
+            //gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x, -gameObject.transform.localScale.y, gameObject.transform.localScale.z);
 
             return false;
         }
