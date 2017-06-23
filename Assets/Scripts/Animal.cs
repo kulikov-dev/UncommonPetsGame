@@ -50,6 +50,7 @@ public class Animal : MonoBehaviour
                 HungryIcon.Hide();
 
             deadAnimal.enabled = true;
+            enabled = false;
 
             /*NEW*/
             SetIsHungry(false);
@@ -81,6 +82,7 @@ public class Animal : MonoBehaviour
 
             if (BloodyRoomPrefab != null)
             {
+                Debug.Log("1");
                 //Вот тут надо создать комнату с кровищей, но для этого нужно понять в какой мы комнате
                 //Как вариант - найти комнату, которая нам ближе всех сейчас, должно проканать
                 var rooms = GameObject.FindGameObjectsWithTag("Level_" + Level.ToString()); //Ищем комнату по этажу
@@ -98,8 +100,10 @@ public class Animal : MonoBehaviour
                         }
                     }
                     var room = currentRoom.GetComponent<RoomScript>();
+                    Debug.Log("2");
                     if (room != null && room.GetComponentInChildren<DirtyRoom>() == null)
                     {
+                        Debug.Log("3");
                         var bloodyRoom = Instantiate(BloodyRoomPrefab);
                         bloodyRoom.transform.parent = room.transform;
                         bloodyRoom.transform.position = room.transform.position;
@@ -107,6 +111,7 @@ public class Animal : MonoBehaviour
                         if (bloodyRoomScript != null)
                         {
                             bloodyRoomScript.Initialize();
+                            Debug.Log("4");
                         }
                     }
                 }

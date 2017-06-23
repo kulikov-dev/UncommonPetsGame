@@ -23,7 +23,7 @@ public class DirtySpot : MonoBehaviour, ICleanable {
     /*NEW*/
     public bool IsHidden()
     {
-        return !SpotSprite.enabled;
+        return SpotSprite != null && !SpotSprite.enabled;
     }
     /*NEW*/
 
