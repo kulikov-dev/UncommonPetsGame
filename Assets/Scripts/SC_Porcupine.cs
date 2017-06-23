@@ -8,7 +8,8 @@ public class SC_Porcupine : Animal, ICleanable
 {
     private Coroutine C_DropNeedles;
     private Coroutine C_Gnawing;
-    
+
+    public Vector3 NeedlesSpawnOffset;
     public GameObject P_Needles;
     private SC_Bubble bubble;
 
@@ -61,7 +62,7 @@ public class SC_Porcupine : Animal, ICleanable
     /// <summary> Запуск таймера сбрасывания иголок </summary>
     private void StartDropNeedles()
     {
-        C_DropNeedles = StartCoroutine(DropNeedlesFunc(UnityEngine.Random.Range(5, 15)));
+        C_DropNeedles = StartCoroutine(DropNeedlesFunc());
     }
     public override bool NeedSelectNewTarget(Transform oldTarget)
     {
@@ -93,14 +94,14 @@ public class SC_Porcupine : Animal, ICleanable
         return base.NeedSelectNewTarget(oldTarget);
     }
 
-    IEnumerator DropNeedlesFunc(float duration)
+    IEnumerator DropNeedlesFunc()
     {
         while (true) // stopping condition?
         {
             Debug.Log("Drop needles");
-            duration = UnityEngine.Random.Range(5, 15);
+            float duration = UnityEngine.Random.Range(10, 20);
             yield return new WaitForSeconds(duration);
-            var needles = Instantiate(P_Needles, transform.position, transform.rotation);
+            var needles = Instantiate(P_Needles, transform.position + NeedlesSpawnOffset, transform.rotation);
             var script = needles.GetComponent<SC_Needles>();
             script.Parent = this;
         }

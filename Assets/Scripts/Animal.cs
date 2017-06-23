@@ -57,6 +57,7 @@ public class Animal : MonoBehaviour
             SetIsHungry(false);
 
             var animator = GetComponent<Animator>();
+            
             if (animator != null)
                 animator.SetBool("IsDead", true);
             //Если девочка еще не ушла, отнимаем у нее рассудок, иначе проверяем условие победы
@@ -92,7 +93,7 @@ public class Animal : MonoBehaviour
                     float minDist = Vector3.Distance(transform.position, currentRoom.transform.position);
                     for (int i = 1; i < rooms.Length; ++i)
                     {
-                        var distance = Vector3.Distance(transform.position, currentRoom.transform.position);
+                        var distance = Vector3.Distance(transform.position, rooms[i].transform.position);
                         if (distance < minDist)
                         {
                             minDist = distance;
