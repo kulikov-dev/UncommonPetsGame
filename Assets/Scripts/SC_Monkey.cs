@@ -28,10 +28,14 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
 
     private Animator MonkeyAnimator;
     /*NEW*/
+    private float defaultHungerPerSecond;
+
 
     internal new void Start()
     {
         base.Start();
+
+        defaultHungerPerSecond = HungerPerSecond;
 
         MonkeyAnimator = GetComponent<Animator>();
         bubble = gameObject.GetComponentInChildren<SC_Bubble>();
@@ -56,6 +60,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
             /*CHANGED*/
             LastStealingTime = Time.time;
             ItemInHand = null;
+            HungerPerSecond = defaultHungerPerSecond;
             MonkeyAnimator.SetBool("IsStealing", false);
         }
     }
@@ -67,7 +72,6 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         if (animal != null && ItemInHand != null && ItemInHand is SC_DangerousMonkeyItem && animal.Health != 0)
         {
             Debug.Log("Start fight with MONKEY!");
-            //TODO сделать запуск мини-игры
             /*NEW*/
             animal.GetDamage(Damage);
             /*NEW*/
@@ -82,6 +86,9 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
             Debug.Log("I'm a super THIEF!");
             ItemInHand = newItemPoint;
             ItemInHand.GetItem(MonkeyHandTransform);
+            if (ItemInHand is SC_HouseMonkeyItem && ((SC_HouseMonkeyItem)ItemInHand).ItemType == enum_ToolType.Food)
+                HungerPerSecond = 0f;
+
             MonkeyAnimator.SetBool("IsStealing", true);
 
             bubble.Hide();
