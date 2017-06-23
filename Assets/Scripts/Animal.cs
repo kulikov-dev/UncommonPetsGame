@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
@@ -26,19 +27,90 @@ public class Animal : MonoBehaviour
     /// <summary> Прирост голода в секунду </summary>
     private float hungerPerSecond = 0.05f;
 
+    /*NEW*/
+    /// <summary> Насколько снижать рассудок девочке при смерти </summary>
+    public float DeclineOfMindValue = 25.0f;
+    /// <summary> Урон в секунду, когда голод = 0 </summary>
+    public float DamageFromHungerPerSecond = 10.0f;
+    /// <summary> Голодает ли животное сейчас или нет </summary>
+    private bool IsHungry = false;
+
+    private Coroutine C_HungryDamage;
+
+    public GameObject BloodyRoomPrefab;
+    /*NEW*/
+
     public virtual void OnDeath()
     {
         var deadAnimal = gameObject.GetComponent<DeadAnimal>();
         if (deadAnimal != null)
         {
-            deadAnimal.enabled = true;
+            deadAnimal.enabled = true;            
             enabled = false;
-        }
 
-       /* var animator = GetComponent<Animator>();
-        if (animator != null)
-            animator.SetBool("IsDead", true);*/
+            /*NEW*/
+            SetIsHungry(false);
+
+            var animator = GetComponent<Animator>();
+            if (animator != null)
+                animator.SetBool("IsDead", true);
+            //Если девочка еще не ушла, отнимаем у нее рассудок, иначе проверяем условие победы
+            var girl = FindObjectOfType<Girl>();
+            if(girl.IsLeftHouse)
+            {
+                var protagonist = FindObjectOfType<SC_Protagonist>();
+                protagonist.ChackVictoryConditions();
+            }
+            else
+            {
+                girl.ReduceReasonLevel(DeclineOfMindValue);
+            }            
+            /*NEW*/
+        }
     }
+
+    /*NEW*/
+    public void Kill()
+    {
+        if(Health > 0)
+        {
+            GetDamage(100.0f);            
+            
+            if (BloodyRoomPrefab != null)
+            {
+                //Вот тут надо создать комнату с кровищей, но для этого нужно понять в какой мы комнате
+                //Как вариант - найти комнату, которая нам ближе всех сейчас, должно проканать
+                var rooms = GameObject.FindGameObjectsWithTag("Level_" + Level.ToString()); //Ищем комнату по этажу
+                if (rooms.Length > 0)
+                {
+                    var currentRoom = rooms[0];
+                    float minDist = Vector3.Distance(transform.position, currentRoom.transform.position);
+                    for (int i = 1; i < rooms.Length; ++i)
+                    {
+                        var  distance = Vector3.Distance(transform.position, currentRoom.transform.position);
+                        if(distance < minDist)
+                        {
+                            minDist = distance;
+                            currentRoom = rooms[i];
+                        }
+                    }
+                    var room = currentRoom.GetComponent<RoomScript>();
+                    if (room != null && room.GetComponentInChildren<DirtyRoom>() == null)
+                    {
+                        var bloodyRoom = Instantiate(BloodyRoomPrefab);
+                        bloodyRoom.transform.parent = room.transform;
+                        bloodyRoom.transform.position = room.transform.position;
+                        var bloodyRoomScript = bloodyRoom.GetComponent<DirtyRoom>();
+                        if (bloodyRoomScript != null)
+                        {
+                            bloodyRoomScript.Initialize();
+                        }
+                    }
+                }
+            }
+        }
+    }
+    /*NEW*/
 
     public virtual void SelectNewTarget() //Переопределим у девочки, чтобы время от времени она шла на улицу за новой тварью
     {
@@ -129,6 +201,10 @@ public class Animal : MonoBehaviour
 
         if (Hunger < 1.0f)          // прирост голода.
             Hunger += Mathf.Clamp(Time.deltaTime * hungerPerSecond, 0.0f, 1.0f);
+        /*NEW*/
+        else
+            SetIsHungry(true);
+        /*NEW*/
 
         if (HungerSprite != null)
             UpdateHungrySprite();
@@ -155,7 +231,34 @@ public class Animal : MonoBehaviour
     public virtual void FeedCreature()
     {
         Hunger = 0f;
+        /*NEW*/
+        SetIsHungry(false);        
+        /*NEW*/
     }
+
+    /*NEW*/
+    void SetIsHungry(bool newValue)
+    {
+        if (IsHungry == newValue)
+            return;
+
+        IsHungry = newValue;
+        if (IsHungry)
+            C_HungryDamage = StartCoroutine(HungryDamage(1.0f));
+        else
+            StopCoroutine(C_HungryDamage);
+    }
+
+    IEnumerator HungryDamage(float duration)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(duration);
+            GetDamage(DamageFromHungerPerSecond);
+        }
+    }
+    /*NEW*/
+
     /// <summary> Показать сообщение, о том что пора покормить создание. </summary>
     public virtual void ShowHungerMessage()
     {

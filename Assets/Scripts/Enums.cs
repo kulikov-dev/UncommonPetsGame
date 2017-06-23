@@ -4,5 +4,6 @@ public enum enum_ToolType
 {
     Hand,
     Shower,
-    Food
+    Food,
+    Gun,
 }

@@ -6,6 +6,9 @@ public class SC_Fun : MonoBehaviour {
 
     /// <summary> Точка, на которой будет висеть ленивец. Нужно будет подогнать </summary>
     public Transform SlothPoint;
+    /*NEW*/
+    public int Level = 0;
+    /*NEW*/
 
 	// Use this for initialization
 	void Start () {

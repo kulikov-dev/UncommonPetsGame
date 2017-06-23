@@ -24,11 +24,14 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
     }
 
     /// <summary> Обезъяну заставили бросить предмет </summary>
-    public virtual void DropItem()
+    /*CHANGED*/
+    public virtual void DropItem(Vector3 position)
     {
-        gameObject.transform.parent = null;
+        transform.parent = null;
+        transform.position = position;
         // TODO бросать на позицию пола.
     }
+    /*CHANGED*/
     /// <summary> Обезъяна подобрала предмет </summary>
     public virtual void GetItem(Transform monkeyAttachPoint)
     {

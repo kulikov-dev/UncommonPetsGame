@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class DeadAnimal : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    /*NEW*/
+    public float DeclineOfMindValue = 5.0f;
+    /*NEW*/
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +17,15 @@ public class DeadAnimal : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    /*NEW*/
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        var girl = other.gameObject.GetComponent<Girl>();
+        if (girl != null)
+        {
+            girl.ReduceReasonLevel(DeclineOfMindValue);
+        }
+    }
+    /*NEW*/
 }

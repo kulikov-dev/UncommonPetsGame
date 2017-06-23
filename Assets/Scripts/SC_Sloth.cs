@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class SC_Sloth : Animal
@@ -12,6 +13,10 @@ public class SC_Sloth : Animal
     private float NewSleepTime = 15f;
 
     private SC_Bubble bubble;
+
+    /*NEW*/
+    private bool IsSlipping = false;
+    /*NEW*/
 
     // Use this for initialization
     internal new void Start()
@@ -28,6 +33,11 @@ public class SC_Sloth : Animal
         if (newItemPoint != null)
         {
             bubble.Show();
+            /*NEW*/
+            IsSlipping = false;
+            //Все делать анимацией а не трансформом
+            /*NEW*/
+
             // TODO висит на вентиляторе
             Debug.Log(newItemPoint.gameObject.transform.position);
 
@@ -36,12 +46,21 @@ public class SC_Sloth : Animal
 
             return false;
         }
-        else if (Level == 2 && UnityEngine.Random.value < Mathf.Min((Time.time - LastSleepTime - TimeBeforeNewSleep) / NewSleepTime, 1.0f))
+        else if (/*Level == 2 && UnityEngine.*/Random.value < Mathf.Min((Time.time - LastSleepTime - TimeBeforeNewSleep) / NewSleepTime, 1.0f))
         {
-            var item = FindObjectOfType<SC_Fun>();
-            Debug.Log("go sleep");
-            SetTarget(item.transform);
-            return false;
+            var items = FindObjectsOfType<SC_Fun>().Where(item => item.Level == Level).ToArray();
+            if (items.Length > 0)
+            {
+                var item = items[Random.Range(0, items.Length)];
+                Debug.Log("go sleep");
+                SetTarget(item.transform);
+                return false;
+            }
+
+            //var item = FindObjectOfType<SC_Fun>();
+            //Debug.Log("go sleep");
+            //SetTarget(item.transform);
+            //return false;
         }
 
         return base.NeedSelectNewTarget(oldTarget);

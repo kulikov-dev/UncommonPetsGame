@@ -6,10 +6,13 @@ public class SC_Protagonist : MonoBehaviour
 {
     public Button ButtonFood;
     public Button ButtonShower;
+    public Button ButtonHand;
+    public Button ButtonGun;
 
     public Texture2D HandCursorTexture;
     public Texture2D ShowerCursorTexture;
     public Texture2D FoodCursorTexture;
+    public Texture2D GunCursorTexture;
 
     private enum_ToolType ToolType = enum_ToolType.Shower;
 
@@ -39,10 +42,44 @@ public class SC_Protagonist : MonoBehaviour
         ButtonFood.interactable = isActive;
     }
 
+    public void SetGunActive(bool isActive)
+    {
+        if (!isActive && ToolType == enum_ToolType.Gun)
+            SetActionHand();
+        ButtonFood.interactable = isActive;
+        if(isActive)
+        {
+            //Проверяем, есть ли еще живые животные, если нет - конец игры
+            ChackVictoryConditions();
+        }
+    }
+
+    //Проверка, остался ли кто живой
+    public void ChackVictoryConditions()
+    {
+        var animals = FindObjectsOfType<Animal>();
+        bool success = true;
+        foreach(var animal in animals)
+        {
+            if(!(animal is Girl) && animal.Health > 0.0f)
+            {
+                success = false;
+                break;
+            }
+        }
+        if(success)
+        {
+            //Game over
+        }
+    }
+
     public void SetActionHand()
     {
-        ToolType = enum_ToolType.Hand;
-        Cursor.SetCursor(HandCursorTexture, Vector2.zero, CursorMode.Auto);
+        if (ButtonHand.interactable)
+        {
+            ToolType = enum_ToolType.Hand;
+            Cursor.SetCursor(HandCursorTexture, Vector2.zero, CursorMode.Auto);
+        }
     }
 
     public void SetActionShower()
@@ -63,6 +100,15 @@ public class SC_Protagonist : MonoBehaviour
         }        
     }
 
+    public void SetActionGun()
+    {
+        if (ButtonGun.interactable)
+        {
+            ToolType = enum_ToolType.Gun;
+            Cursor.SetCursor(GunCursorTexture, Vector2.zero, CursorMode.Auto);
+        }
+    }
+
     public void OnMouseAction(MonoBehaviour item)
     {
         switch (ToolType)
@@ -81,6 +127,11 @@ public class SC_Protagonist : MonoBehaviour
                 var animal = item as Animal;
                 if (animal != null)
                     animal.FeedCreature();
+                break;
+            case enum_ToolType.Gun:
+                var anim = item as Animal;
+                if (anim != null)
+                    anim.Kill();
                 break;
         }
     }

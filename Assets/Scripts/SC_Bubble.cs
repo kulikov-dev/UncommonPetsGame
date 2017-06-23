@@ -17,6 +17,13 @@ public class SC_Bubble : MonoBehaviour {
 
     }
 
+    /*NEW*/
+    public bool IsVisible()
+    {
+        return bubbleSprite.enabled;
+    }
+    /*NEW*/
+
     public void Show()
     {
         bubbleSprite.enabled = true;

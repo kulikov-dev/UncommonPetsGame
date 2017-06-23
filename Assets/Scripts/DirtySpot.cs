@@ -20,6 +20,13 @@ public class DirtySpot : MonoBehaviour, ICleanable {
             DirtyRoom.DirtyLevelDown(this);
     }
 
+    /*NEW*/
+    public bool IsHidden()
+    {
+        return !SpotSprite.enabled;
+    }
+    /*NEW*/
+
     public void Hide()
     {
         if (SpotSprite != null)

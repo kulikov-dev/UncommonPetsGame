@@ -5,7 +5,34 @@ using UnityEngine;
 public class DirtyRoom : MonoBehaviour {
     public List<DirtySpot> HiddenDirtySpots = new List<DirtySpot>();
     public List<DirtySpot> VisibleDirtySpots = new List<DirtySpot>();
+    /*NEW*/
+    public float DamagePerSecond = 1.0f;
+    private List<Animal> DamagedAnimals;    
+    /*NEW*/
     private bool CanBeDestroyed = false;
+
+    /*NEW*/
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        var animal = other.gameObject.GetComponent<Animal>();
+        if (animal != null)
+        {
+            if(!(animal is Hippo))
+            {
+                DamagedAnimals.Add(animal);
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        var animal = other.gameObject.GetComponent<Animal>();
+        if (animal != null)
+        {
+            DamagedAnimals.Remove(animal);
+        }
+    }
+    /*NEW*/
 
     public void SetCanBeDestroyed()
     {
@@ -40,17 +67,38 @@ public class DirtyRoom : MonoBehaviour {
         foreach (var spot in dirtySpots)
         {
             spot.DirtyRoom = this;
-            HiddenDirtySpots.Add(spot);            
+            /*CHANGED*/
+            if(spot.IsHidden())
+                HiddenDirtySpots.Add(spot);
+            else
+                VisibleDirtySpots.Add(spot);
+            /*CHANGED*/
         }
     }
 
     // Use this for initialization
-    void Start () {        
-        
+    void Start () {
+        /*NEW*/
+        StartCoroutine(Damage(1.0f));
+        /*NEW*/
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    /*NEW*/
+    IEnumerator Damage(float duration)
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(duration);
+            foreach(var animal in DamagedAnimals)
+            {
+                animal.GetDamage(DamagePerSecond);
+            }
+        }
+    }
+    /*NEW*/
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

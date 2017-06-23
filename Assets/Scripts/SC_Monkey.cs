@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary> Класс обезъяны </summary>
@@ -18,6 +19,13 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     private float TimeBeforeNewStealing = 5f;
     /// <summary> Время в течении которого точно должен начать таскать предметы </summary>
     private float NewStealingTime = 25f;
+
+    /*NEW*/
+    /// <summary> Сдвиг с которым будут бросаться предметы </summary>
+    public Vector3 DropOffset;
+    /// <summary> Урон, который наносит обезьяна с оружием </summary>
+    public float Damage = 10.0f;
+    /*NEW*/
 
     internal new void Start()
     {
@@ -40,7 +48,9 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     {
         if (ItemInHand != null)
         {
-            ItemInHand.DropItem();
+            /*CHANGED*/
+            ItemInHand.DropItem(transform.position + DropOffset);
+            /*CHANGED*/
             LastStealingTime = Time.time;
             ItemInHand = null;
         }
@@ -54,6 +64,9 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         {
             Debug.Log("Start fight with MONKEY!");
             //TODO сделать запуск мини-игры
+            /*NEW*/
+            animal.GetDamage(Damage);
+            /*NEW*/
         }
     }
 
@@ -74,20 +87,30 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         else if (ItemInHand == null)
         {
             if (UnityEngine.Random.value < Mathf.Min((Time.time - LastStealingTime - TimeBeforeNewStealing) / NewStealingTime, 1.0f))
-            {
-                var items = FindObjectsOfType<SC_BaseMonkeyItem>();
-                var random = UnityEngine.Random.Range(0, items.Length - 1);
-                for (var i = random; i < items.Length + random; i++)
+            {                
+                /*CHANGED*/
+                var items = FindObjectsOfType<SC_BaseMonkeyItem>().Where(item => item.ItemLevel == Level).ToArray();
+                if(items.Length > 0)
                 {
-                    var item = items[i % items.Length];
-                    if (Level == item.ItemLevel)
-                    {
-                        Debug.Log("Go and steal items!");
-                        bubble.Show();
-                        SetTarget(item.transform);
-                        return false;
-                    }
+                    var item = items[UnityEngine.Random.Range(0, items.Length)];
+                    Debug.Log("Go and steal items!");
+                    bubble.Show();
+                    SetTarget(item.transform);
+                    return false;
                 }
+                //var random = UnityEngine.Random.Range(0, items.Length - 1);
+                //for (var i = random; i < items.Length + random; i++)
+                //{
+                //    var item = items[i % items.Length];
+                //    if (Level == item.ItemLevel)
+                //    {
+                //        Debug.Log("Go and steal items!");
+                //        bubble.Show();
+                //        SetTarget(item.transform);
+                //        return false;
+                //    }
+                //}
+                /*CHANGED*/
             }
         }
 
