@@ -21,12 +21,12 @@ public class Animal : MonoBehaviour
 
     /// <summary> Параметр здоровья у животного/девочки </summary>
     public float Health = 100f;
-    public SC_Hungry HungryIcon;
+    private SC_Hungry HungryIcon;
 
     /// <summary> Голод изменяется в промежутке от 0 до 1, если голод больше 0.5 то показывать индикатор, что пора кормить животное </summary>
     public float Hunger = 0f;
     /// <summary> Прирост голода в секунду </summary>
-    public float HungerPerSecond = 1f;//0.05f;
+    public float HungerPerSecond = 0.05f;
 
     /*NEW*/
     /// <summary> Насколько снижать рассудок девочке при смерти </summary>
