@@ -15,7 +15,6 @@ public class SC_Sloth : Animal
     private SC_Bubble bubble;
 
     /*NEW*/
-    private bool IsSlipping = false;
     private Animator SlothAnimator;
     /*NEW*/
 

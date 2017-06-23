@@ -46,7 +46,7 @@ public class SC_Protagonist : MonoBehaviour
     {
         if (!isActive && ToolType == enum_ToolType.Gun)
             SetActionHand();
-        ButtonFood.interactable = isActive;
+        ButtonGun.interactable = isActive;
         if(isActive)
         {
             //Проверяем, есть ли еще живые животные, если нет - конец игры
@@ -70,6 +70,7 @@ public class SC_Protagonist : MonoBehaviour
         if(success)
         {
             //Game over
+            Debug.Log("YOU WIN!");
         }
     }
 

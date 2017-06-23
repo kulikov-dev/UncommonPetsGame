@@ -25,6 +25,7 @@ public class Girl : Animal {
     {
         ReasonBubble.Hide();
         base.OnDeath();
+        Debug.Log("YOU LOSE!");
         //Game over
     }
 
@@ -41,6 +42,7 @@ public class Girl : Animal {
             {
                 ReasonLevel = 0.0f;
                 //Game over
+                Debug.Log("YOU LOSE!");
             }
         }        
     }

@@ -1081,7 +1081,7 @@ MonoBehaviour:
   Health: 100
   HungryIcon: {fileID: 0}
   Hunger: 0
-  HungerPerSecond: 0.05
+  HungerPerSecond: 0
   DeclineOfMindValue: 25
   DamageFromHungerPerSecond: 10
   BloodyRoomPrefab: {fileID: 0}
