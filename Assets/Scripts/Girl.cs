@@ -38,7 +38,7 @@ public class Girl : Animal {
             {
                 ReasonBubble.Show();
             }
-            if (ReasonLevel < 0.0f)
+            if (ReasonLevel <= 0.0f)
             {
                 ReasonLevel = 0.0f;
                 //Game over

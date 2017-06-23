@@ -61,17 +61,17 @@ public class DirtyRoom : MonoBehaviour {
             Destroy(gameObject);
     }
 
-    public void Initialize()
+    public void Initialize(bool isBloody = false)
     {
         var dirtySpots = GetComponentsInChildren<DirtySpot>();
         foreach (var spot in dirtySpots)
         {
             spot.DirtyRoom = this;
             /*CHANGED*/
-            if(spot.IsHidden())
-                HiddenDirtySpots.Add(spot);
+            if(isBloody)
+                VisibleDirtySpots.Add(spot); 
             else
-                VisibleDirtySpots.Add(spot);
+                HiddenDirtySpots.Add(spot);
             /*CHANGED*/
         }
     }

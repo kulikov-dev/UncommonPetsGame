@@ -65,6 +65,9 @@ TagManager:
   - name: Porcupine
     uniqueID: 1566834037
     locked: 0
+  - name: Rabbit
+    uniqueID: 3611195621
+    locked: 0
   - name: Foreground
     uniqueID: 961782443
     locked: 0

@@ -27,7 +27,7 @@ public class SC_Rabbit : Animal
         if (!IsKilling && DayNightControllerInst.IsFullDarkness())
         {
             var animal = other.gameObject.GetComponent<Animal>();
-            if (animal != null)
+            if (animal != null && animal.Health > 0.0f)
             {
                 if (!(animal is Girl))
                 {

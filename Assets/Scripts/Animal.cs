@@ -109,7 +109,7 @@ public class Animal : MonoBehaviour
                         var bloodyRoomScript = bloodyRoom.GetComponent<DirtyRoom>();
                         if (bloodyRoomScript != null)
                         {
-                            bloodyRoomScript.Initialize();
+                            bloodyRoomScript.Initialize(true);
                         }
                     }
                 }
