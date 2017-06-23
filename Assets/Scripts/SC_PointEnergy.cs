@@ -1,12 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 /// <summary> Точка с проводкой </summary>
-public class SC_PointEnergy : MonoBehaviour
+public class SC_PointEnergy : MonoBehaviour, ICleanable
 {
-    /// <summary> Спрайт для работающей проводки </summary>
-    public Sprite Sprite_EnergyWork;
-    /// <summary> Спрайт для сломаной проводки </summary>
-    public Sprite Sprite_EnergyBroken;
+    public SpriteRenderer FireSprite;
+
+    /// <summary> Кол-во кликов для починки </summary>
+    public int ConstTryToAttempt = 3;
+    private int currentTryToAttmpt = 3;
 
     private bool isLightBroken = false;
     public bool IsLightBroken
@@ -15,7 +17,12 @@ public class SC_PointEnergy : MonoBehaviour
         private set
         {
             isLightBroken = value;
-            transform.gameObject.GetComponent<SpriteRenderer>().sprite = value ? Sprite_EnergyBroken : Sprite_EnergyWork;
+            if (isLightBroken)
+            {
+                currentTryToAttmpt = ConstTryToAttempt;
+                FireSprite.transform.localScale = new Vector3(0.5659826f, 0.5659826f);
+                FireSprite.enabled = true;
+            }
         }
     }
 
@@ -40,10 +47,22 @@ public class SC_PointEnergy : MonoBehaviour
         dayNightController.SetLightOn(false);
     }
 
-    /// <summary> Попытаться починить проводку </summary>
-    public void TryToRepairEnergy()
+    void ICleanable.Clean()
     {
-        //TODO запускает мини-игру, если она прошла успешно то отмечает что свет в доме работает
-        IsLightBroken = false;
+        --currentTryToAttmpt;
+        switch (currentTryToAttmpt)
+        {
+            case 2:
+                FireSprite.transform.localScale = new Vector3(0.4659826f, 0.4659826f);
+                break;
+            case 1:
+                FireSprite.transform.localScale = new Vector3(0.2659826f, 0.2659826f);
+                break;
+            case 0:
+                FireSprite.enabled = false;
+                IsLightBroken = false;
+                break;
+        }
+
     }
 }
