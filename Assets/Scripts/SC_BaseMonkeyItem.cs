@@ -46,11 +46,6 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
 
     }
 
-    private void OnMouseDown()
-    {
-        var protagonist = FindObjectOfType<SC_Protagonist>();
-        protagonist.OnMouseAction(this);
-    }
     /// <summary> По щелчку - возвращаем предмет на место </summary>
     public void Touch()
     {

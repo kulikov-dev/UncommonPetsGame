@@ -87,7 +87,10 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
             ItemInHand = newItemPoint;
             ItemInHand.GetItem(MonkeyHandTransform);
             if (ItemInHand is SC_HouseMonkeyItem && ((SC_HouseMonkeyItem)ItemInHand).ItemType == enum_ToolType.Food)
+            {
+                Hunger = 0f;
                 HungerPerSecond = 0f;
+            }
 
             MonkeyAnimator.SetBool("IsStealing", true);
 
