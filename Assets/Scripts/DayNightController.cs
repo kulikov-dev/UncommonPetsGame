@@ -11,7 +11,7 @@ public class DayNightController : MonoBehaviour {
 
     /*NEW*/
     //Трансформ индикатора на календаре
-    public Transform DayIndicatorTransform;
+  //  public Transform DayIndicatorTransform;
     //На сколько сдвигать индикатор на календаре за сутки
     public Vector3 DayIndicatorOffset;
     //Сколько дней осталось до завершения игры
@@ -44,7 +44,7 @@ public class DayNightController : MonoBehaviour {
             //Включаем день у всех комнат
             UpdateRooms();
             DaysLeft -= 1;
-            DayIndicatorTransform.position += DayIndicatorOffset;
+            //DayIndicatorTransform.position += DayIndicatorOffset;
             if (DaysLeft == 0)
             {
                 //Вышло время игры, отсылаем девочку домой и перестаем менять время суток

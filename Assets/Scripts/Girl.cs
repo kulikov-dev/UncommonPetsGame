@@ -23,6 +23,7 @@ public class Girl : Animal {
     /*NEW*/
     public override void OnDeath()
     {
+        ReasonBubble.Hide();
         base.OnDeath();
         //Game over
     }

@@ -60,7 +60,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     void OnTriggerEnter2D(Collider2D other)
     {
         var animal = other.gameObject.GetComponent<Animal>();
-        if (animal != null && ItemInHand != null && ItemInHand is SC_DangerousMonkeyItem)
+        if (animal != null && ItemInHand != null && ItemInHand is SC_DangerousMonkeyItem && animal.Health != 0)
         {
             Debug.Log("Start fight with MONKEY!");
             //TODO сделать запуск мини-игры
@@ -87,10 +87,10 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         else if (ItemInHand == null)
         {
             if (UnityEngine.Random.value < Mathf.Min((Time.time - LastStealingTime - TimeBeforeNewStealing) / NewStealingTime, 1.0f))
-            {                
+            {
                 /*CHANGED*/
                 var items = FindObjectsOfType<SC_BaseMonkeyItem>().Where(item => item.ItemLevel == Level).ToArray();
-                if(items.Length > 0)
+                if (items.Length > 0)
                 {
                     var item = items[UnityEngine.Random.Range(0, items.Length)];
                     Debug.Log("Go and steal items!");
@@ -115,5 +115,12 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         }
 
         return base.NeedSelectNewTarget(oldTarget);
+    }
+
+    public override void OnDeath()
+    {
+        bubble.Hide();
+        StopAllCoroutines();
+        base.OnDeath();
     }
 }

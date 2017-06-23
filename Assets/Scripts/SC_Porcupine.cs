@@ -121,4 +121,11 @@ public class SC_Porcupine : Animal, ICleanable
 
     }
 
+    public override void OnDeath()
+    {
+        StopAllCoroutines();
+        bubble.Hide();
+        base.OnDeath();
+    }
+
 }

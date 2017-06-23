@@ -29,7 +29,7 @@ public class SC_Rabbit : Animal
             var animal = other.gameObject.GetComponent<Animal>();
             if (animal != null)
             {
-                if (!animal is Girl)
+                if (!(animal is Girl))
                 {
                     animal.Kill();
                     FeedCreature();
@@ -46,5 +46,11 @@ public class SC_Rabbit : Animal
         yield return new WaitForSeconds(duration);
         IsKilling = false;
         StartMoving();
+    }
+
+    public override void OnDeath()
+    {
+        StopAllCoroutines();
+        base.OnDeath();
     }
 }

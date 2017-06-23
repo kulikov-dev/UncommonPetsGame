@@ -7,7 +7,7 @@ public class DirtyRoom : MonoBehaviour {
     public List<DirtySpot> VisibleDirtySpots = new List<DirtySpot>();
     /*NEW*/
     public float DamagePerSecond = 1.0f;
-    private List<Animal> DamagedAnimals;    
+    private List<Animal> DamagedAnimals = new List<Animal>();    
     /*NEW*/
     private bool CanBeDestroyed = false;
 

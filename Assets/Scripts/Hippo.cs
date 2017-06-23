@@ -173,4 +173,10 @@ public class Hippo : Animal, ICleanable
             sprite.color = hippoColor;
         }
     }
+
+    public override void OnDeath()
+    {
+        StopAllCoroutines();
+        base.OnDeath();
+    }
 }
