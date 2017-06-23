@@ -8,13 +8,7 @@ public class SC_Needles : MonoBehaviour, ITouchable
     /// <summary> Ссылка на господина дикообразыча. </summary>
     public Animal Parent;
 
-    private void OnMouseDown()
-    {
-        var protagonist = FindObjectOfType<SC_Protagonist>();
-        protagonist.OnMouseAction(this);
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
+        void OnTriggerEnter2D(Collider2D other)
     {
         var animal = other.gameObject.GetComponent<Animal>();
         if (animal != null && animal != Parent)

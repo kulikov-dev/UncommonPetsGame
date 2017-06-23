@@ -109,6 +109,20 @@ public class SC_Protagonist : MonoBehaviour
         }
     }
 
+    public void FixedUpdate()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hit.collider != null)
+            {
+                var item = hit.collider.gameObject.GetComponent<MonoBehaviour>();
+                if (item != null)
+                    OnMouseAction(item);
+            }
+        }
+    }
+
     public void OnMouseAction(MonoBehaviour item)
     {
         switch (ToolType)
