@@ -497,7 +497,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1129487699289084}
-  m_LocalRotation: {x: 0, y: 0, z: 0.51497096, w: 0.8572076}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5149737, w: 0.857206}
   m_LocalPosition: {x: 0.92674017, y: 0.14899485, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -538,7 +538,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1763750889881424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.572868, y: -2.21493, z: 0}
+  m_LocalPosition: {x: 9.89, y: -3.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4464538085176346}
@@ -598,7 +598,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1600163931170674}
-  m_LocalRotation: {x: 0, y: 0, z: 0.30517682, w: 0.9522957}
+  m_LocalRotation: {x: 0, y: 0, z: 0.305176, w: 0.952296}
   m_LocalPosition: {x: 0.39499965, y: -0.000000029802322, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -637,7 +637,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1928823695278710}
-  m_LocalRotation: {x: 0, y: 0, z: 0.33085945, w: 0.94368005}
+  m_LocalRotation: {x: 0, y: 0, z: 0.33085924, w: 0.9436801}
   m_LocalPosition: {x: 1.1080563, y: 0.11382115, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -677,7 +677,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1905531028229332}
-  m_LocalRotation: {x: 0, y: 0, z: 0.52399766, w: 0.8517197}
+  m_LocalRotation: {x: 0, y: 0, z: 0.52399653, w: 0.8517204}
   m_LocalPosition: {x: 0.07700163, y: 0.31127402, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -735,7 +735,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1635501522350162}
-  m_LocalRotation: {x: 0, y: 0, z: -0.26831165, w: 0.9633322}
+  m_LocalRotation: {x: 0, y: 0, z: -0.2683167, w: 0.9633308}
   m_LocalPosition: {x: 0.473455, y: 0.00000008940697, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -872,16 +872,16 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4163802233134330}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.51497096, w: 0.8572076}
+      solverRotation: {x: 0, y: 0, z: 0.5149737, w: 0.857206}
       defaultLocalRotation: {x: 0, y: 0, z: 0.5617918, w: 0.82727873}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4856447293422608}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: -0.26831165, w: 0.9633322}
+      solverRotation: {x: 0, y: 0, z: -0.26831666, w: 0.96333075}
       defaultLocalRotation: {x: 0, y: 0, z: -0.09482539, w: 0.99549395}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 32.357, y: -2.1179626, z: 0}
+    targetPosition: {x: 8.9470005, y: -4.208, z: 0}
     flip: 1
 --- !u!114 &114123659829453092
 MonoBehaviour:
@@ -895,7 +895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.5000007
+  m_Length: 0.50000167
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4245938199133586}
   m_AttachedIK: {fileID: 0}
@@ -1029,7 +1029,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: 0.3391408, w: 0.94073564}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 33.133, y: -2.2699628, z: 0}
+    targetPosition: {x: 9.723001, y: -4.36, z: 0}
     flip: 0
 --- !u!114 &114330093739509548
 MonoBehaviour:
@@ -1059,7 +1059,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.39500052
+  m_Length: 0.39499983
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4457638565010102}
   m_AttachedIK: {fileID: 114445681824754978}
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.47198802
+  m_Length: 0.4719882
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4460458783313492}
   m_AttachedIK: {fileID: 114311650062657832}
@@ -1105,7 +1105,7 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4485559620833190}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.33085945, w: 0.94368005}
+      solverRotation: {x: 0, y: 0, z: 0.33085924, w: 0.9436801}
       defaultLocalRotation: {x: 0, y: 0, z: 0.49581015, w: 0.868431}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4024334439340276}
@@ -1114,7 +1114,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: -0.2290456, w: 0.97341573}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 31.751999, y: -2.2389627, z: 0}
+    targetPosition: {x: 8.342, y: -4.329, z: 0}
     flip: 1
 --- !u!114 &114445681824754978
 MonoBehaviour:
@@ -1142,16 +1142,16 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4530474782017964}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.52399766, w: 0.8517197}
+      solverRotation: {x: 0, y: 0, z: 0.52399653, w: 0.8517204}
       defaultLocalRotation: {x: 0, y: 0, z: 0.7045305, w: 0.7096738}
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4457638565010102}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.30517682, w: 0.9522957}
+      solverRotation: {x: 0, y: 0, z: 0.30517596, w: 0.95229596}
       defaultLocalRotation: {x: 0, y: 0, z: 0.23670541, w: 0.97158146}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 33.54, y: -2.2489626, z: 0}
+    targetPosition: {x: 10.13, y: -4.3389997, z: 0}
     flip: 0
 --- !u!114 &114460850447053312
 MonoBehaviour:
@@ -1206,7 +1206,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.47345507
+  m_Length: 0.4734555
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4856447293422608}
   m_AttachedIK: {fileID: 114113415689862296}
@@ -1243,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.6230251
+  m_Length: 0.6230242
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4024334439340276}
   m_AttachedIK: {fileID: 114439175782740740}
@@ -1296,12 +1296,15 @@ MonoBehaviour:
   Level: 0
   CheckTargetDistance: 1
   ScaleFactor: -1
+  SpawnHeight: 0.5
   Health: 100
-  HungerSprite: {fileID: 0}
+  HungryIcon: {fileID: 0}
   Hunger: 0
+  HungerPerSecond: 0
   DeclineOfMindValue: 25
   DamageFromHungerPerSecond: 10
-  BloodyRoomPrefab: {fileID: 0}
+  BloodyRoomPrefab: {fileID: 1924428850765334, guid: 57a0d4ae499306443ba0a16b9811cb1f,
+    type: 2}
 --- !u!114 &114861794687233492
 MonoBehaviour:
   m_ObjectHideFlags: 1

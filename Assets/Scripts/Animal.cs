@@ -13,6 +13,7 @@ public class Animal : MonoBehaviour
     public int Level = 0;
     public float CheckTargetDistance = 1f;
     public float ScaleFactor = 1.0f;
+    public float SpawnHeight = 0.0f;
 
     private bool IsMoving = false;
     private float Acceleration = 4.0f;
@@ -173,6 +174,7 @@ public class Animal : MonoBehaviour
 
     internal void Start()
     {
+        transform.position += new Vector3(0.0f, SpawnHeight, 0.0f);
         StartMoving();
 
         HungryIcon = gameObject.GetComponentInChildren<SC_Hungry>();

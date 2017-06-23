@@ -221,7 +221,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1021659297469806}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1519225, y: -4.187431, z: 0}
+  m_LocalPosition: {x: 8.4, y: -4.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4775871147534860}
@@ -386,6 +386,7 @@ MonoBehaviour:
   Level: 0
   CheckTargetDistance: 1
   ScaleFactor: -1
+  SpawnHeight: -0.3
   Health: 100
   HungryIcon: {fileID: 0}
   Hunger: 0
@@ -545,7 +546,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1885112605
-  m_SortingLayer: 7
+  m_SortingLayer: 9
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 52db76e0c50296740b9069ce4386e057, type: 3}
   m_Color: {r: 0.062, g: 1, b: 0, a: 1}
@@ -705,8 +706,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1885112605
-  m_SortingLayer: 7
-  m_SortingOrder: 0
+  m_SortingLayer: 9
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f25bb50d20899cd4997ad5e6318b1c16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

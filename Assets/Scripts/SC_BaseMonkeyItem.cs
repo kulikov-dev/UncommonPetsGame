@@ -29,6 +29,7 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
     {
         transform.parent = null;
         transform.position = position;
+        gameObject.transform.rotation = Quaternion.identity;
         // TODO бросать на позицию пола.
     }
     /*CHANGED*/
@@ -36,7 +37,7 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
     public virtual void GetItem(Transform monkeyAttachPoint)
     {
         gameObject.transform.parent = monkeyAttachPoint.parent;
-        gameObject.transform.position = monkeyAttachPoint.position;
+        gameObject.transform.position = monkeyAttachPoint.position;        
     }
 
     /// <summary> Поставить предмет на место </summary>
@@ -53,7 +54,11 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
     /// <summary> По щелчку - возвращаем предмет на место </summary>
     public void Touch()
     {
-        gameObject.transform.position = StartPosition;
-        RecoverItem();
+        if(transform.parent == null)
+        {
+            gameObject.transform.position = StartPosition;
+            gameObject.transform.rotation = Quaternion.identity;
+            RecoverItem();
+        }       
     }
 }
