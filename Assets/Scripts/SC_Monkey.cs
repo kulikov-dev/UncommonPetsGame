@@ -25,12 +25,15 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     public Vector3 DropOffset;
     /// <summary> Урон, который наносит обезьяна с оружием </summary>
     public float Damage = 10.0f;
+
+    private Animator MonkeyAnimator;
     /*NEW*/
 
     internal new void Start()
     {
         base.Start();
 
+        MonkeyAnimator = GetComponent<Animator>();
         bubble = gameObject.GetComponentInChildren<SC_Bubble>();
         LastStealingTime = Time.time;
     }
@@ -53,6 +56,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
             /*CHANGED*/
             LastStealingTime = Time.time;
             ItemInHand = null;
+            MonkeyAnimator.SetBool("IsStealing", false);
         }
     }
 
@@ -78,6 +82,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
             Debug.Log("I'm a super THIEF!");
             ItemInHand = newItemPoint;
             ItemInHand.GetItem(MonkeyHandTransform);
+            MonkeyAnimator.SetBool("IsStealing", true);
 
             bubble.Hide();
 

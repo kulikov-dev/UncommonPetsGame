@@ -47,14 +47,20 @@ TagManager:
   - name: Background
     uniqueID: 2503779871
     locked: 0
-  - name: Hippo
-    uniqueID: 567427859
-    locked: 0
   - name: Props
     uniqueID: 3087340491
     locked: 0
   - name: Player
     uniqueID: 2450868177
+    locked: 0
+  - name: Hippo
+    uniqueID: 567427859
+    locked: 0
+  - name: Monkey
+    uniqueID: 3085977205
+    locked: 0
+  - name: Sloth
+    uniqueID: 2180087041
     locked: 0
   - name: Porcupine
     uniqueID: 1566834037
