@@ -46,10 +46,15 @@ public class SC_BaseMonkeyItem : MonoBehaviour, ITouchable
 
     }
 
+    public bool CanTouch()
+    {
+        return transform.parent == null;
+    }
+
     /// <summary> По щелчку - возвращаем предмет на место </summary>
     public void Touch()
     {
-        if(transform.parent == null)
+        if(CanTouch())
         {
             gameObject.transform.position = StartPosition;
             gameObject.transform.rotation = Quaternion.identity;
