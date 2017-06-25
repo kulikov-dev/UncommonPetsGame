@@ -6,7 +6,7 @@ public class DayNightController : MonoBehaviour {
     public bool IsLightOn = true;
     public float DailyCycleTime = 10.0f;    
 
-    private bool IsDay = true;
+    public bool IsDay = true;
     private float CurrentTime = 0.0f;
 
     /*NEW*/
@@ -67,7 +67,7 @@ public class DayNightController : MonoBehaviour {
         UpdateRooms();
     }
 
-    private void UpdateRooms()
+    public void UpdateRooms()
     {
         foreach(var room in Rooms)
         {

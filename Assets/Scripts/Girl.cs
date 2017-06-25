@@ -25,7 +25,9 @@ public class Girl : Animal {
     {
         ReasonBubble.Hide();
         base.OnDeath();
-        Debug.Log("YOU LOSE!");
+
+        var protagonist = FindObjectOfType<SC_Protagonist>();
+        protagonist.FinishGame(false);
         //Game over
     }
 
@@ -43,7 +45,8 @@ public class Girl : Animal {
             {
                 ReasonLevel = 0.0f;
                 //Game over
-                Debug.Log("YOU LOSE!");
+                var protagonist = FindObjectOfType<SC_Protagonist>();
+                protagonist.FinishGame(false);
             }
         }        
     }
