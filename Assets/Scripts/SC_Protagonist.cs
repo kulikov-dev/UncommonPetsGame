@@ -96,8 +96,17 @@ public class SC_Protagonist : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public Sprite ToggleMusicOn;
+    public Sprite ToggleMusicOff;
+    public Toggle ToggleMusicB;
     public void ToggleMusic()
     {
+        var ToggleMusicImg = ToggleMusicB.GetComponent<Image>();
+        if (ToggleMusicB.isOn)
+            ToggleMusicImg.sprite = ToggleMusicOn;
+        else
+            ToggleMusicImg.sprite = ToggleMusicOff;
+
         if (MusicSource != null)
             MusicSource.mute = !MusicSource.mute;
     }
