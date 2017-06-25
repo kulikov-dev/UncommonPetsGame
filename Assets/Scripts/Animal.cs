@@ -43,14 +43,14 @@ public class Animal : MonoBehaviour
     /*NEW*/
 
     public virtual void OnDeath()
-    {
+    {   
         var deadAnimal = gameObject.GetComponent<SC_DeadAnimal>();
-        if (deadAnimal != null)
+        if (deadAnimal == null)
         {
+            deadAnimal = gameObject.AddComponent<SC_DeadAnimal>();
             if (HungryIcon != null)
                 HungryIcon.Hide();
 
-            deadAnimal.enabled = true;
             enabled = false;
 
             /*NEW*/

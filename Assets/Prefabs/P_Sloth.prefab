@@ -218,7 +218,6 @@ GameObject:
   - component: {fileID: 61872210448236408}
   - component: {fileID: 50083973611689018}
   - component: {fileID: 95900626242998230}
-  - component: {fileID: 114976347878552674}
   m_Layer: 0
   m_Name: P_Sloth
   m_TagString: Untagged
@@ -1316,18 +1315,6 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 114207020818927272}
---- !u!114 &114976347878552674
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1474949688168918}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337cf647585de8c42b6d1ba3cb604ffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeclineOfMindValue: 5
 --- !u!137 &137122488652371040
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

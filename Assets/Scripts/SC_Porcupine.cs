@@ -44,6 +44,11 @@ public class SC_Porcupine : Animal, ICleanable
             bubble.Hide();
     }
 
+    public bool GetIsGnawing()
+    {
+        return isGnawing;
+    }
+
     void ICleanable.Clean()
     {
         if (isGnawing)

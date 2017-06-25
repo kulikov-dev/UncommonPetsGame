@@ -27,12 +27,12 @@ public class SC_Protagonist : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-            if (hit.collider != null)
+            
+            var hitResults = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+            if (hitResults.Length > 0)
             {
-                var item = hit.collider.gameObject.GetComponent<MonoBehaviour>();
-                if (item != null)
-                    OnMouseAction(item);
+                Debug.Log("Result count " + hitResults.Length);
+                OnMouseAction(hitResults);
             }
         }
     }
@@ -83,12 +83,18 @@ public class SC_Protagonist : MonoBehaviour
         }
     }
 
+    private void SetCursor(Texture2D texture)
+    {
+        var cursorHotspot = new Vector2(texture.width / 2, texture.height / 2);
+        Cursor.SetCursor(texture, cursorHotspot, CursorMode.Auto);
+    }
+
     public void SetActionHand()
     {
         if (ButtonHand.interactable)
         {
             ToolType = enum_ToolType.Hand;
-            Cursor.SetCursor(HandCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(HandCursorTexture);
         }
     }
 
@@ -97,7 +103,7 @@ public class SC_Protagonist : MonoBehaviour
         if (ButtonShower.interactable)
         {
             ToolType = enum_ToolType.Shower;
-            Cursor.SetCursor(ShowerCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(ShowerCursorTexture);
         }        
     }
 
@@ -106,7 +112,7 @@ public class SC_Protagonist : MonoBehaviour
         if (ButtonFood.interactable)
         {
             ToolType = enum_ToolType.Food;
-            Cursor.SetCursor(FoodCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(FoodCursorTexture);
         }        
     }
 
@@ -115,7 +121,7 @@ public class SC_Protagonist : MonoBehaviour
         if (ButtonGun.interactable)
         {
             ToolType = enum_ToolType.Gun;
-            Cursor.SetCursor(GunCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(GunCursorTexture);
         }
     }
 
@@ -124,27 +130,159 @@ public class SC_Protagonist : MonoBehaviour
         
     }
 
-    public void OnMouseAction(MonoBehaviour item)
+    private const int PointEnergyPriority = 7;
+    private const int Hippo70Priority = 6;
+    private const int PorcupneGnawingPriority = 5;
+    private const int DirtySpotPriority = 4;
+    private const int Hippo30Priority = 3;
+    private const int NeedlesPriority = 3;
+    private const int MonkeyPriority = 2;
+    private const int ItemPriority = 1;
+    private const int HippoPriority = 1;
+
+    private ICleanable GetItemToShower(RaycastHit2D[] hitResults)
+    {
+        ICleanable result = null;
+        int currentPriority = 0;
+        foreach (var hitResult in hitResults)
+        {
+            var cleanable = hitResult.collider == null ? null : hitResult.collider.gameObject.GetComponent<ICleanable>();
+            if (cleanable == null || (cleanable is Animal && !(cleanable as Animal).enabled))
+                continue;
+            var prioroty = 0;
+            if (cleanable is Hippo)
+            {
+                var hippo = cleanable as Hippo;
+                var hippoPriority = HippoPriority;
+                if (hippo.DirtyLevel > 0.7f)
+                    hippoPriority = Hippo70Priority;
+                else if(hippo.DirtyLevel > 0.3f)
+                    hippoPriority = Hippo30Priority;
+                prioroty = hippoPriority;
+            }
+            else if (cleanable is SC_PointEnergy)
+            {
+                var pointEnergy = cleanable as SC_PointEnergy;
+                if (pointEnergy.IsLightBroken)
+                    prioroty = PointEnergyPriority;
+            }
+            else if (cleanable is SC_Porcupine)
+            {
+                var porcupine = cleanable as SC_Porcupine;
+                if (porcupine.GetIsGnawing())
+                    prioroty = PorcupneGnawingPriority;
+            }
+            else if (cleanable is SC_Monkey)
+            {
+                var monkey = cleanable as SC_Monkey;
+                if (monkey.GoToStealItem)
+                    prioroty = MonkeyPriority;
+            }
+            else if(cleanable is DirtySpot)
+            {
+                prioroty = DirtySpotPriority;
+            }
+
+            if (prioroty > currentPriority)
+            {
+                result = cleanable;
+                currentPriority = prioroty;
+            }
+        }
+        return result;
+    }
+    
+    private ITouchable GetItemToHand(RaycastHit2D[] hitResults)
+    {
+        ITouchable result = null;
+        int currentPriority = 0;
+
+        foreach (var hitResult in hitResults)
+        {
+            var touchable = hitResult.collider == null ? null : hitResult.collider.gameObject.GetComponent<ITouchable>();
+            if (touchable == null || (touchable is Animal && !(touchable as Animal).enabled))
+                continue;
+            var prioroty = 0;
+            if (touchable is SC_Monkey)
+            {
+                var monkey = touchable as SC_Monkey;
+                if (monkey.ItemInHand != null)
+                    prioroty = MonkeyPriority;
+            }
+            else if (touchable is SC_Needles)
+            {
+                prioroty = NeedlesPriority;
+            }
+            else if (touchable is SC_BaseMonkeyItem)
+            {
+                var item = touchable as SC_BaseMonkeyItem;
+                if (item.CanTouch())
+                    prioroty = ItemPriority;
+            }
+
+            if (prioroty > currentPriority)
+            {
+                result = touchable;
+                currentPriority = prioroty;
+            }
+        }        
+        return result;
+    }
+
+    private Animal GetAnimalToFeed(RaycastHit2D[] hitResults)
+    {
+        Animal result = null;
+        foreach (var hitResult in hitResults)
+        {
+            var animal = hitResult.collider == null ? null : hitResult.collider.gameObject.GetComponent<Animal>();
+            
+            if (animal != null && animal.enabled)
+            {
+                if(result == null || animal.Hunger > result.Hunger)
+                {
+                    Debug.Log("Result found!");
+                    result = animal;
+                }
+            }
+        }
+        return result;
+    }
+
+    private Animal GetAnimalToKill(RaycastHit2D[] hitResults)
+    {
+        foreach(var hitResult in hitResults)
+        {
+            var animal = hitResult.collider == null ? null : hitResult.collider.gameObject.GetComponent<Animal>();
+            if(animal != null && animal.enabled && animal.Health > 0)
+            {
+                return animal;
+            }
+        }
+        return null;
+    }
+
+    public void OnMouseAction(RaycastHit2D[] hitResults)
     {
         switch (ToolType)
         {
             case enum_ToolType.Shower:
-                var cleanable = item as ICleanable;
+                
+                var cleanable = GetItemToShower(hitResults);
                 if (cleanable != null)
                     cleanable.Clean();
                 break;
             case enum_ToolType.Hand:
-                var touchable = item as ITouchable;
+                var touchable = GetItemToHand(hitResults);
                 if (touchable != null)
                     touchable.Touch();
                 break;
             case enum_ToolType.Food:
-                var animal = item as Animal;
+                var animal = GetAnimalToFeed(hitResults);
                 if (animal != null)
                     animal.FeedCreature();
                 break;
             case enum_ToolType.Gun:
-                var anim = item as Animal;
+                var anim = GetAnimalToKill(hitResults);
                 if (anim != null)
                     anim.Kill();
                 break;

@@ -9,7 +9,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
 {
 
     /// <summary> Указатель на предмет, который находится у обезьяны в руках.  </summary>
-    private SC_BaseMonkeyItem ItemInHand = null;
+    public SC_BaseMonkeyItem ItemInHand = null;
     public Transform MonkeyHandTransform;
 
     private SC_Bubble bubble;
@@ -29,6 +29,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     private Animator MonkeyAnimator;
     /*NEW*/
     private float defaultHungerPerSecond;
+    public bool GoToStealItem = false;
 
 
     internal new void Start()
@@ -45,9 +46,16 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     /// <summary> Реализация метода помыть -  Заставляет макаку выбрать себе другой target. Это позволит отгонять её от опасных предметов. </summary>
     void ICleanable.Clean()
     {
-        SelectNewTarget();
-
-        bubble.Hide();
+        if(GoToStealItem)
+        {
+            GoToStealItem = false;
+            SelectNewTarget();
+            bubble.Hide();
+        }
+        else
+        {
+            (this as ITouchable).Touch();
+        }        
     }
 
     /// <summary> Метод “нажатие мышью” - вызывается, когда на животное ткнули мышью. при наличии предмета, заставляет обезьяну бросить его. </summary>
@@ -85,6 +93,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         {
             Debug.Log("I'm a super THIEF!");
             ItemInHand = newItemPoint;
+            GoToStealItem = false;
             ItemInHand.GetItem(MonkeyHandTransform);
             if (ItemInHand is SC_HouseMonkeyItem && ((SC_HouseMonkeyItem)ItemInHand).ItemType == enum_ToolType.Food)
             {
@@ -109,6 +118,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
                 {
                     var item = items[UnityEngine.Random.Range(0, items.Length)];
                     Debug.Log("Go and steal items!");
+                    GoToStealItem = true;
                     bubble.Show();
                     SetTarget(item.transform);
                     return false;

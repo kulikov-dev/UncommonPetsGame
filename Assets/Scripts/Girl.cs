@@ -31,6 +31,7 @@ public class Girl : Animal {
 
     public void ReduceReasonLevel(float value)
     {
+        Debug.Log("ReduceReasonLevel");
         if(ReasonLevel > 0.0f)
         {
             ReasonLevel -= value;
