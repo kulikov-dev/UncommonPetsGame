@@ -30,6 +30,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     /*NEW*/
     private float defaultHungerPerSecond;
     public bool GoToStealItem = false;
+    protected AudioSource TheftSoundSource;
 
 
     internal new void Start()
@@ -41,6 +42,9 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         MonkeyAnimator = GetComponent<Animator>();
         bubble = gameObject.GetComponentInChildren<SC_Bubble>();
         LastStealingTime = Time.time;
+
+        TheftSoundSource = gameObject.AddComponent<AudioSource>();
+        TheftSoundSource.clip = Resources.Load<AudioClip>("Theft");
     }
 
     /// <summary> Реализация метода помыть -  Заставляет макаку выбрать себе другой target. Это позволит отгонять её от опасных предметов. </summary>
@@ -92,6 +96,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         if (newItemPoint != null)
         {
             Debug.Log("I'm a super THIEF!");
+            PlaySound(TheftSoundSource);
             ItemInHand = newItemPoint;
             GoToStealItem = false;
             ItemInHand.GetItem(MonkeyHandTransform);
@@ -112,7 +117,6 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         {
             if (UnityEngine.Random.value < Mathf.Min((Time.time - LastStealingTime - TimeBeforeNewStealing) / NewStealingTime, 1.0f))
             {
-                /*CHANGED*/
                 var items = FindObjectsOfType<SC_BaseMonkeyItem>().Where(item => item.ItemLevel == Level).ToArray();
                 if (items.Length > 0)
                 {
@@ -123,19 +127,6 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
                     SetTarget(item.transform);
                     return false;
                 }
-                //var random = UnityEngine.Random.Range(0, items.Length - 1);
-                //for (var i = random; i < items.Length + random; i++)
-                //{
-                //    var item = items[i % items.Length];
-                //    if (Level == item.ItemLevel)
-                //    {
-                //        Debug.Log("Go and steal items!");
-                //        bubble.Show();
-                //        SetTarget(item.transform);
-                //        return false;
-                //    }
-                //}
-                /*CHANGED*/
             }
         }
 

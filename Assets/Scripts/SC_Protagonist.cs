@@ -22,10 +22,30 @@ public class SC_Protagonist : MonoBehaviour
 
     private enum_ToolType ToolType = enum_ToolType.Shower;
 
+    protected AudioSource ClickSoundSource;
+    protected AudioSource WaterSplashSoundSource;
+    protected AudioSource ShotSoundSource;
+
+    protected void PlaySound(AudioSource source)
+    {
+        if (source.isPlaying)
+            return;
+        source.Play();
+    }
+
     // Use this for initialization
     void Start()
     {
         SetActionHand();
+
+        ClickSoundSource = gameObject.AddComponent<AudioSource>();
+        ClickSoundSource.clip = Resources.Load<AudioClip>("Click");
+
+        WaterSplashSoundSource = gameObject.AddComponent<AudioSource>();
+        WaterSplashSoundSource.clip = Resources.Load<AudioClip>("WaterSplash");
+
+        ShotSoundSource = gameObject.AddComponent<AudioSource>();
+        ShotSoundSource.clip = Resources.Load<AudioClip>("Shot");
     }
 
     // Update is called once per frame
@@ -316,12 +336,18 @@ public class SC_Protagonist : MonoBehaviour
 
                 var cleanable = GetItemToShower(hitResults);
                 if (cleanable != null)
+                {
+                    PlaySound(WaterSplashSoundSource);
                     cleanable.Clean();
+                }                   
                 break;
             case enum_ToolType.Hand:
                 var touchable = GetItemToHand(hitResults);
                 if (touchable != null)
+                {
+                    PlaySound(ClickSoundSource);
                     touchable.Touch();
+                }
                 break;
             case enum_ToolType.Food:
                 var animal = GetAnimalToFeed(hitResults);
@@ -331,7 +357,10 @@ public class SC_Protagonist : MonoBehaviour
             case enum_ToolType.Gun:
                 var anim = GetAnimalToKill(hitResults);
                 if (anim != null)
+                {
+                    PlaySound(ShotSoundSource);
                     anim.Kill();
+                }
                 break;
         }
     }
