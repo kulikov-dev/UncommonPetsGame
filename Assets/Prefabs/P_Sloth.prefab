@@ -998,7 +998,7 @@ MonoBehaviour:
   SpawnHeight: 0.5
   Health: 100
   Hunger: 0
-  HungerPerSecond: 0
+  AddHungerPerSecond: 0
   DeclineOfMindValue: 25
   DamageFromHungerPerSecond: 10
   BloodyRoomPrefab: {fileID: 1924428850765334, guid: 57a0d4ae499306443ba0a16b9811cb1f,

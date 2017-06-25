@@ -33,7 +33,7 @@ public class SC_Porcupine : Animal, ICleanable
 
         StartDropNeedles();
         LastGnowingTime = Time.time;
-        PorcupineAnimator = GetComponent<Animator>();
+        PorcupineAnimator = GetComponent<Animator>();       
     }
 
     private void SetIsGnawing(bool newValue)

@@ -6,16 +6,17 @@ public class NewAnimalPoint : MonoBehaviour {
 
     public GameObject[] Animals;
     public float SpawnDuration = 1.0f;
+    private int AnimalNum = 0;
 
-    private List<GameObject> AnimalsList = new List<GameObject>();
+    //private List<GameObject> AnimalsList = new List<GameObject>();
     // Use this for initialization
     void Start () {
-        AnimalsList.AddRange(Animals);
+        //AnimalsList.AddRange(Animals);
     }
 
     public bool CanSpawnAnimal()
     {
-        return AnimalsList.Count > 0;
+        return AnimalNum < Animals.Length;
     }
 
     public void SpawnAnimal()
@@ -28,8 +29,8 @@ public class NewAnimalPoint : MonoBehaviour {
     {
         yield return new WaitForSeconds(SpawnDuration);
         Debug.Log("Spawn animal");
-        Instantiate(AnimalsList[0], transform.position, transform.rotation);
-        AnimalsList.RemoveAt(0);
+        Instantiate(Animals[AnimalNum], transform.position, transform.rotation);
+        AnimalNum++;
     }
 
     // Update is called once per frame

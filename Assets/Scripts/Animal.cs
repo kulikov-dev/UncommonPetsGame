@@ -26,7 +26,7 @@ public class Animal : MonoBehaviour
     /// <summary> Голод изменяется в промежутке от 0 до 1, если голод больше 0.5 то показывать индикатор, что пора кормить животное </summary>
     public float Hunger = 0f;
     /// <summary> Прирост голода в секунду </summary>
-    public float HungerPerSecond = 0.05f;
+    public float AddHungerPerSecond = 0.05f;
 
     /*NEW*/
     /// <summary> Насколько снижать рассудок девочке при смерти </summary>
@@ -209,7 +209,7 @@ public class Animal : MonoBehaviour
         }
 
         if (Hunger < 1.0f)          // прирост голода.
-            Hunger += Mathf.Clamp(Time.deltaTime * HungerPerSecond, 0.0f, 1.0f);
+            Hunger += Mathf.Clamp(Time.deltaTime * AddHungerPerSecond, 0.0f, 1.0f);
         /*NEW*/
         else
             SetIsHungry(true);
