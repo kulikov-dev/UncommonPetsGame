@@ -6,6 +6,8 @@ public class SC_PointEnergy : MonoBehaviour, ICleanable
 {
     public SpriteRenderer FireSprite;
 
+    protected AudioSource ExplosionSoundSource;
+
     /// <summary> Кол-во кликов для починки </summary>
     public int ConstTryToAttempt = 3;
     private int currentTryToAttmpt = 3;
@@ -29,6 +31,8 @@ public class SC_PointEnergy : MonoBehaviour, ICleanable
     // Use this for initialization
     void Start()
     {
+        ExplosionSoundSource = gameObject.AddComponent<AudioSource>();
+        ExplosionSoundSource.clip = Resources.Load<AudioClip>("ElecticExplosion");
     }
 
     // Update is called once per frame
@@ -42,6 +46,8 @@ public class SC_PointEnergy : MonoBehaviour, ICleanable
         IsLightBroken = newValue;
         var dayNightController = FindObjectOfType<DayNightController>();
         dayNightController.SetLightOn(!newValue);
+        if (isLightBroken)
+            ExplosionSoundSource.Play();
     }
 
     /// <summary> Проводка сломана 

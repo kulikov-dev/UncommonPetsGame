@@ -14,6 +14,7 @@ public class SC_Porcupine : Animal, ICleanable
     private SC_Bubble bubble;
 
     private bool isGnawing;
+    protected AudioSource GnawingSoundSource;
 
     private float LastGnowingTime;
     /// <summary> Время в течении которого точно не начнет грызть проводку </summary>
@@ -33,7 +34,10 @@ public class SC_Porcupine : Animal, ICleanable
 
         StartDropNeedles();
         LastGnowingTime = Time.time;
-        PorcupineAnimator = GetComponent<Animator>();       
+        PorcupineAnimator = GetComponent<Animator>();
+
+        GnawingSoundSource = gameObject.AddComponent<AudioSource>();
+        GnawingSoundSource.clip = Resources.Load<AudioClip>("Gnawing");
     }
 
     private void SetIsGnawing(bool newValue)
@@ -41,7 +45,14 @@ public class SC_Porcupine : Animal, ICleanable
         isGnawing = newValue;
         PorcupineAnimator.SetBool("IsGnowing", isGnawing);
         if(!isGnawing)
+        {
             bubble.Hide();
+            PlaySound(GnawingSoundSource);
+        }
+        else
+        {
+            GnawingSoundSource.Stop();
+        }            
     }
 
     public bool GetIsGnawing()

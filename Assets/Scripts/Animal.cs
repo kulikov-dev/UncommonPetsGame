@@ -40,6 +40,11 @@ public class Animal : MonoBehaviour
 
     public GameObject BloodyRoomPrefab;
 
+    protected AudioSource HungerSoundSource;
+    protected AudioSource DamageSoundSource;
+    protected AudioSource DeathSoundSource;
+    protected AudioSource EatingSoundSource;    
+
     /*NEW*/
 
     public virtual void OnDeath()
@@ -180,6 +185,19 @@ public class Animal : MonoBehaviour
         StartMoving();
 
         HungryIcon = gameObject.GetComponentInChildren<SC_Hungry>();
+
+        HungerSoundSource = gameObject.AddComponent<AudioSource>();
+        HungerSoundSource.clip = Resources.Load<AudioClip>("Hunger");
+
+        DamageSoundSource = gameObject.AddComponent<AudioSource>();
+        DamageSoundSource.clip = Resources.Load<AudioClip>("AnimalDamage");
+
+        DeathSoundSource = gameObject.AddComponent<AudioSource>();
+        DeathSoundSource.clip = Resources.Load<AudioClip>("Death");
+
+        EatingSoundSource = gameObject.AddComponent<AudioSource>();
+        EatingSoundSource.clip = Resources.Load<AudioClip>("Eating");
+
     }
 
     public virtual bool NeedSelectNewTarget(Transform oldTarget)
@@ -209,11 +227,14 @@ public class Animal : MonoBehaviour
         }
 
         if (Hunger < 1.0f)          // прирост голода.
-            Hunger += Mathf.Clamp(Time.deltaTime * AddHungerPerSecond, 0.0f, 1.0f);
-        /*NEW*/
+        {
+            var hungerDelta = Time.deltaTime * AddHungerPerSecond;
+            if (Hunger < 0.8f && Hunger + hungerDelta >= 0.8f)
+                PlaySound(HungerSoundSource);
+            Hunger += Mathf.Clamp(hungerDelta, 0.0f, 1.0f);
+        }
         else
             SetIsHungry(true);
-        /*NEW*/
 
         if (HungryIcon != null)
             UpdateHungrySprite();
@@ -239,10 +260,12 @@ public class Animal : MonoBehaviour
     /// <summary> Покормить создание </summary>
     public virtual void FeedCreature()
     {
-        Hunger = 0f;
-        /*NEW*/
-        SetIsHungry(false);
-        /*NEW*/
+        if (Hunger <= 0.0f)
+            return;
+
+        PlaySound(EatingSoundSource);
+        Hunger = 0f;        
+        SetIsHungry(false);        
     }
 
     /*NEW*/
@@ -276,11 +299,24 @@ public class Animal : MonoBehaviour
 
     public virtual void GetDamage(float damage)
     {
+        if (Health <= 0.0f)
+            return;
+
         Health = Mathf.Clamp(Health - damage, 0, 100);
         if (Health <= 0.0f)
         {
             Health = 0.0f;
+            PlaySound(DeathSoundSource);
             OnDeath();
         }
+        else
+            PlaySound(DamageSoundSource);
+    }
+
+    protected void PlaySound(AudioSource source)
+    {
+        if (source.isPlaying)
+            return;
+        source.Play();
     }
 }

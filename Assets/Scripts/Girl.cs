@@ -57,6 +57,8 @@ public class Girl : Animal {
         /*NEW*/
         LastAnimalTime = Time.time - NewAnimalTime;
         base.Start();
+
+        DamageSoundSource.clip = Resources.Load<AudioClip>("GirlDamage");
     }
 
     // Update is called once per frame
