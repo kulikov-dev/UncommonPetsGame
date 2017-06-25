@@ -1,5 +1,6 @@
 ﻿
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SC_Protagonist : MonoBehaviour
@@ -13,6 +14,8 @@ public class SC_Protagonist : MonoBehaviour
     public Texture2D ShowerCursorTexture;
     public Texture2D FoodCursorTexture;
     public Texture2D GunCursorTexture;
+
+    public AudioSource MusicSource;
 
     private enum_ToolType ToolType = enum_ToolType.Shower;
 
@@ -81,6 +84,22 @@ public class SC_Protagonist : MonoBehaviour
             //Game over
             Debug.Log("YOU WIN!");
         }
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void ToggleMusic()
+    {
+        if (MusicSource != null)
+            MusicSource.mute = !MusicSource.mute;
     }
 
     private void SetCursor(Texture2D texture)
