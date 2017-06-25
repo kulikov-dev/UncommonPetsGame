@@ -731,17 +731,17 @@ Prefab:
         type: 2}
       propertyPath: HandCursorTexture
       value: 
-      objectReference: {fileID: 2800000, guid: b6832cc175338ca41ad4b4c7d63f16d9, type: 3}
+      objectReference: {fileID: 2800000, guid: 43fa5a9a7bb27804d8a346a5c6d5d620, type: 3}
     - target: {fileID: 114138020612826442, guid: 4fcc8d5093fb58244beeb969d3fa0563,
         type: 2}
       propertyPath: FoodCursorTexture
       value: 
-      objectReference: {fileID: 2800000, guid: baef3206595030646bf0978e8335c951, type: 3}
+      objectReference: {fileID: 2800000, guid: 59116199155344f4c8779e9c8edb079a, type: 3}
     - target: {fileID: 114138020612826442, guid: 4fcc8d5093fb58244beeb969d3fa0563,
         type: 2}
       propertyPath: ShowerCursorTexture
       value: 
-      objectReference: {fileID: 2800000, guid: ad4537cf603fdc146ab3f82586e0e5da, type: 3}
+      objectReference: {fileID: 2800000, guid: 885bf495ed7097d4389fa010fd33c77d, type: 3}
     - target: {fileID: 114138020612826442, guid: 4fcc8d5093fb58244beeb969d3fa0563,
         type: 2}
       propertyPath: ButtonHand

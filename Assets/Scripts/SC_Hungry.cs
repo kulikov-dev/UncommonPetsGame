@@ -12,4 +12,11 @@ public class SC_Hungry : MonoBehaviour
             sprite.enabled = false;
 
     }
+
+    public void Show()
+    {
+        foreach (var sprite in gameObject.GetComponentsInChildren<SpriteRenderer>())
+            sprite.enabled = true;
+
+    }
 }

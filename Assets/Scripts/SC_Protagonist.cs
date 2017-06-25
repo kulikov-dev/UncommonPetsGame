@@ -46,10 +46,11 @@ public class SC_Protagonist : MonoBehaviour
 
         WaterSplashSoundSource = gameObject.AddComponent<AudioSource>();
         WaterSplashSoundSource.clip = Resources.Load<AudioClip>("WaterSplash");
-        WaterSplashSoundSource.volume = 0.5f;
+        WaterSplashSoundSource.volume = 0.4f;
 
         ShotSoundSource = gameObject.AddComponent<AudioSource>();
         ShotSoundSource.clip = Resources.Load<AudioClip>("Shot");
+        ShotSoundSource.volume = 0.3f;
 
         WinSoundSource = gameObject.AddComponent<AudioSource>();
         WinSoundSource.clip = Resources.Load<AudioClip>("snd_Win");
@@ -57,8 +58,9 @@ public class SC_Protagonist : MonoBehaviour
 
         LoseSounrSource = gameObject.AddComponent<AudioSource>();
         LoseSounrSource.clip = Resources.Load<AudioClip>("snd_Lose");
-   LoseSounrSource.volume = 0.3f;
-       MusicSource.mute = false;    }
+        LoseSounrSource.volume = 0.3f;
+        MusicSource.mute = false;
+    }
 
     // Update is called once per frame
     void Update()
@@ -72,6 +74,22 @@ public class SC_Protagonist : MonoBehaviour
                 Debug.Log("Result count " + hitResults.Length);
                 OnMouseAction(hitResults);
             }
+        }
+        if(Input.GetKeyDown("q"))
+        {
+            SetActionHand();
+        }
+        else if (Input.GetKeyDown("w"))
+        {
+            SetActionFood();
+        }
+        else if (Input.GetKeyDown("e"))
+        {
+            SetActionShower();
+        } 
+        else if (Input.GetKeyDown("r"))
+        {
+            SetActionGun();
         }
     }
 
@@ -96,8 +114,9 @@ public class SC_Protagonist : MonoBehaviour
         ButtonGun.interactable = isActive;
         if (isActive)
         {
-            //Проверяем, есть ли еще живые животные, если нет - конец игры
+            //Проверяем, есть ли еще живые животные, если нет - конец игры            
             ChackVictoryConditions();
+            SetActionGun();
         }
     }
 
@@ -210,6 +229,9 @@ public class SC_Protagonist : MonoBehaviour
         {
             ToolType = enum_ToolType.Gun;
             SetCursor(GunCursorTexture);
+            ButtonFood.interactable = false;
+            ButtonHand.interactable = false;
+            ButtonShower.interactable = false;
         }
     }
 
@@ -360,7 +382,7 @@ public class SC_Protagonist : MonoBehaviour
                 {
                     PlaySound(WaterSplashSoundSource);
                     cleanable.Clean();
-                }                   
+                }
                 break;
             case enum_ToolType.Hand:
                 var touchable = GetItemToHand(hitResults);

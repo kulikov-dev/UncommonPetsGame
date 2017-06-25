@@ -22,7 +22,7 @@ public class Animal : MonoBehaviour
     /// <summary> Параметр здоровья у животного/девочки </summary>
     public float Health = 100f;
     private SC_Hungry HungryIcon;
-
+    
     /// <summary> Голод изменяется в промежутке от 0 до 1, если голод больше 0.5 то показывать индикатор, что пора кормить животное </summary>
     public float Hunger = 0f;
     /// <summary> Прирост голода в секунду </summary>
@@ -185,6 +185,8 @@ public class Animal : MonoBehaviour
         StartMoving();
 
         HungryIcon = gameObject.GetComponentInChildren<SC_Hungry>();
+        if (HungryIcon != null)
+            HungryIcon.Hide();
 
         HungerSoundSource = gameObject.AddComponent<AudioSource>();
         HungerSoundSource.clip = Resources.Load<AudioClip>("Hunger");
@@ -232,8 +234,17 @@ public class Animal : MonoBehaviour
         if (Hunger < 1.0f)          // прирост голода.
         {
             var hungerDelta = Time.deltaTime * AddHungerPerSecond;
-            if (Hunger < 0.8f && Hunger + hungerDelta >= 0.8f)
+            if (Hunger < 0.3f && Hunger + hungerDelta >= 0.3f)
+            {
+                if (HungryIcon != null)
+                    HungryIcon.Show();
+            }
+
+            if (Hunger < 0.75f && Hunger + hungerDelta >= 0.75f)
+            {
                 PlaySound(HungerSoundSource);
+            }
+
             Hunger += Mathf.Clamp(hungerDelta, 0.0f, 1.0f);
         }
         else
@@ -263,12 +274,14 @@ public class Animal : MonoBehaviour
     /// <summary> Покормить создание </summary>
     public virtual void FeedCreature()
     {
-        if (Hunger <= 0.0f)
+        if (Hunger <= 0.3f)
             return;
 
         PlaySound(EatingSoundSource);
         Hunger = 0f;        
-        SetIsHungry(false);        
+        SetIsHungry(false);
+        if (HungryIcon != null)
+            HungryIcon.Hide();
     }
 
     /*NEW*/
