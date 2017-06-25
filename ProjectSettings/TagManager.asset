@@ -50,9 +50,6 @@ TagManager:
   - name: Background
     uniqueID: 2503779871
     locked: 0
-  - name: Props
-    uniqueID: 3087340491
-    locked: 0
   - name: Player
     uniqueID: 2450868177
     locked: 0
@@ -70,6 +67,9 @@ TagManager:
     locked: 0
   - name: Rabbit
     uniqueID: 3611195621
+    locked: 0
+  - name: Props
+    uniqueID: 3087340491
     locked: 0
   - name: Foreground
     uniqueID: 961782443

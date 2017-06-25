@@ -18,6 +18,12 @@ public class SC_Sloth : Animal
     private Animator SlothAnimator;
     /*NEW*/
 
+    public override void OnDeath()
+    {
+        base.OnDeath();
+        bubble.Hide();
+    }
+
     // Use this for initialization
     internal new void Start()
     {
