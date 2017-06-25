@@ -12,12 +12,14 @@ public class SC_Rabbit : Animal
 
     /*NEW*/
     private bool IsKilling = false;
+    private Animator RabbitAnimator;
     /*NEW*/
 
     // Use this for initialization
     internal new void Start()
     {
         base.Start();
+        RabbitAnimator = GetComponent<Animator>();
 
         DayNightControllerInst = FindObjectOfType<DayNightController>();
     }
@@ -43,9 +45,13 @@ public class SC_Rabbit : Animal
 
     IEnumerator Relaxation(float duration)
     {
+        if (RabbitAnimator != null)
+            RabbitAnimator.SetBool("IsSitting", true);
         yield return new WaitForSeconds(duration);
         IsKilling = false;
         StartMoving();
+        if (RabbitAnimator != null)
+            RabbitAnimator.SetBool("IsSitting", false);
     }
 
     public override void OnDeath()
