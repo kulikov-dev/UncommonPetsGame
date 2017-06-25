@@ -17,7 +17,7 @@ public class DirtyRoom : MonoBehaviour {
         var animal = other.gameObject.GetComponent<Animal>();
         if (animal != null)
         {
-            if(!(animal is Hippo))
+            if(!(animal is SC_Hippo))
             {
                 DamagedAnimals.Add(animal);
             }

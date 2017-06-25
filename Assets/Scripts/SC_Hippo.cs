@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hippo : Animal, ICleanable
+public class SC_Hippo : Animal, ICleanable
 {
     ///<summary>Цвет бегемота, которого надо облить</summary>
     public Color DirtyColor = Color.red;
@@ -41,6 +41,8 @@ public class Hippo : Animal, ICleanable
     private AudioSource PoopsSoundSource;
     private SpriteMeshInstance[] HippoSprites;
 
+    private SC_Bubble bubble;
+
     public override void FeedCreature()
     {
         base.FeedCreature();
@@ -71,6 +73,7 @@ public class Hippo : Animal, ICleanable
         HippoAnimator.SetBool("IsInRage", false);
         MaxVelocity = DefaultMaxVecity;
         MaxAcceleration = DefaultMaxAcceleration;
+        bubble.Hide();
     }
 
 
@@ -156,6 +159,8 @@ public class Hippo : Animal, ICleanable
         PoopsSoundSource = GetComponent<AudioSource>();
         HippoAnimator = GetComponent<Animator>();
         HippoSprites = GetComponentsInChildren<SpriteMeshInstance>();
+
+        bubble = gameObject.GetComponentInChildren<SC_Bubble>();
     }
 
     // Update is called once per frame
@@ -172,6 +177,8 @@ public class Hippo : Animal, ICleanable
                 if (!StartRageMode())
                     DirtyLevel = 0.9f;
             }
+            else if (DirtyLevel > 0.7f)
+                bubble.Show();
         }
         Color hippoColor = Color.Lerp(Color.white, DirtyColor, DirtyLevel);
         foreach (var sprite in HippoSprites)
@@ -183,6 +190,7 @@ public class Hippo : Animal, ICleanable
     public override void OnDeath()
     {
         StopAllCoroutines();
+        bubble.Hide();
         if (dirtyRoomScript != null)
             dirtyRoomScript.SetCanBeDestroyed();
         if (IsPooping)

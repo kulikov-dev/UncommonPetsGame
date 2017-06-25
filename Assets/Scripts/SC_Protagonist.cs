@@ -150,9 +150,9 @@ public class SC_Protagonist : MonoBehaviour
             if (cleanable == null || (cleanable is Animal && !(cleanable as Animal).enabled))
                 continue;
             var prioroty = 0;
-            if (cleanable is Hippo)
+            if (cleanable is SC_Hippo)
             {
-                var hippo = cleanable as Hippo;
+                var hippo = cleanable as SC_Hippo;
                 var hippoPriority = HippoPriority;
                 if (hippo.DirtyLevel > 0.7f)
                     hippoPriority = Hippo70Priority;
