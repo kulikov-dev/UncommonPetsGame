@@ -10,19 +10,18 @@ public class DayNightController : MonoBehaviour {
     private float CurrentTime = 0.0f;
 
     /*NEW*/
-    //Трансформ индикатора на календаре
-  //  public Transform DayIndicatorTransform;
-    //На сколько сдвигать индикатор на календаре за сутки
-    public Vector3 DayIndicatorOffset;
+    //Спрайты, показывающие сколько дней прошле
+    public SpriteRenderer[] DayIndicatorSprites;
     //Сколько дней осталось до завершения игры
-    public int DaysLeft = 5;
+    private int DaysLeft = 0;
     /*NEW*/
 
     private RoomScript[] Rooms;
 	// Use this for initialization
 	void Start () {
         Rooms = FindObjectsOfType<RoomScript>();
-	}
+        DaysLeft = DayIndicatorSprites.Length;
+    }
 
     /*NEW*/
     public bool IsFullDarkness()
@@ -43,7 +42,8 @@ public class DayNightController : MonoBehaviour {
             CurrentTime -= DailyCycleTime;
             //Включаем день у всех комнат
             UpdateRooms();
-            DaysLeft -= 1;
+            DayIndicatorSprites[DayIndicatorSprites.Length - DaysLeft].enabled = true;
+            DaysLeft -= 1;            
             //DayIndicatorTransform.position += DayIndicatorOffset;
             if (DaysLeft == 0)
             {
