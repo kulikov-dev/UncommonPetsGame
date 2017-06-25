@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 4171ca5285a733b4aabc2ec7cc0b80a9
-timeCreated: 1498158981
+timeCreated: 1498380223
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -354,12 +354,12 @@ TextureImporter:
       name: SpriteSheet03_19
       rect:
         serializedVersion: 2
-        x: 968
-        y: 158
+        x: 969
+        y: 154
         width: 55
-        height: 56
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 61
+      alignment: 9
+      pivot: {x: 0.48181817, y: 0.52459013}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -367,12 +367,12 @@ TextureImporter:
       name: SpriteSheet03_20
       rect:
         serializedVersion: 2
-        x: 958
-        y: 111
-        width: 25
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 953.89996
+        y: 109.69999
+        width: 31.800049
+        height: 40.30001
+      alignment: 9
+      pivot: {x: 0.52201295, y: 0.5285361}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -380,12 +380,12 @@ TextureImporter:
       name: SpriteSheet03_21
       rect:
         serializedVersion: 2
-        x: 983
-        y: 115
-        width: 27
-        height: 26
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 977.5
+        y: 109.30002
+        width: 37
+        height: 38.399994
+      alignment: 9
+      pivot: {x: 0.5135135, y: 0.48697877}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -393,12 +393,12 @@ TextureImporter:
       name: SpriteSheet03_22
       rect:
         serializedVersion: 2
-        x: 952
-        y: 57
-        width: 65
-        height: 39
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 947
+        y: 53
+        width: 74
+        height: 46
+      alignment: 9
+      pivot: {x: 0.5067568, y: 0.51086956}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -406,12 +406,12 @@ TextureImporter:
       name: SpriteSheet03_23
       rect:
         serializedVersion: 2
-        x: 964
-        y: 8
-        width: 21
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 959.7196
+        y: 4.079379
+        width: 30.560791
+        height: 41.081104
+      alignment: 9
+      pivot: {x: 0.48363915, y: 0.4970806}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -419,12 +419,12 @@ TextureImporter:
       name: SpriteSheet03_24
       rect:
         serializedVersion: 2
-        x: 989
-        y: 9
-        width: 28
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 984.3
+        y: 5.6000004
+        width: 35
+        height: 41.4
+      alignment: 9
+      pivot: {x: 0.5342861, y: 0.4806763}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -547,6 +547,6 @@ TextureImporter:
       tessellationDetail: 0
     outline: []
   spritePackingTag: 
-  userData: 
+  userData: 98197842568486
   assetBundleName: 
   assetBundleVariant: 
