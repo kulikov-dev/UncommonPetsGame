@@ -46,15 +46,18 @@ public class SC_Protagonist : MonoBehaviour
 
         WaterSplashSoundSource = gameObject.AddComponent<AudioSource>();
         WaterSplashSoundSource.clip = Resources.Load<AudioClip>("WaterSplash");
+        WaterSplashSoundSource.volume = 0.5f;
 
         ShotSoundSource = gameObject.AddComponent<AudioSource>();
         ShotSoundSource.clip = Resources.Load<AudioClip>("Shot");
 
         WinSoundSource = gameObject.AddComponent<AudioSource>();
         WinSoundSource.clip = Resources.Load<AudioClip>("snd_Win");
+        WinSoundSource.volume = 0.3f;
 
         LoseSounrSource = gameObject.AddComponent<AudioSource>();
         LoseSounrSource.clip = Resources.Load<AudioClip>("snd_Lose");
+        LoseSounrSource.volume = 0.3f;
     }
 
     // Update is called once per frame

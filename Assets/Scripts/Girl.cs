@@ -62,6 +62,7 @@ public class Girl : Animal {
         base.Start();
 
         DamageSoundSource.clip = Resources.Load<AudioClip>("GirlDamage");
+        DamageSoundSource.volume = 0.2f;
     }
 
     // Update is called once per frame

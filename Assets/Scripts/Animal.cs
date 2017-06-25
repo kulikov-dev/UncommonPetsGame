@@ -188,16 +188,19 @@ public class Animal : MonoBehaviour
 
         HungerSoundSource = gameObject.AddComponent<AudioSource>();
         HungerSoundSource.clip = Resources.Load<AudioClip>("Hunger");
+        HungerSoundSource.volume = 0.2f;
 
         DamageSoundSource = gameObject.AddComponent<AudioSource>();
         DamageSoundSource.clip = Resources.Load<AudioClip>("AnimalDamage");
+        DamageSoundSource.volume = 0.3f;
 
         DeathSoundSource = gameObject.AddComponent<AudioSource>();
         DeathSoundSource.clip = Resources.Load<AudioClip>("Death");
+        DeathSoundSource.volume = 0.2f;
 
         EatingSoundSource = gameObject.AddComponent<AudioSource>();
         EatingSoundSource.clip = Resources.Load<AudioClip>("Eating");
-
+        EatingSoundSource.volume = 0.2f;
     }
 
     public virtual bool NeedSelectNewTarget(Transform oldTarget)

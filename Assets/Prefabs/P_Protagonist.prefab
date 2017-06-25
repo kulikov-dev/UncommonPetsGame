@@ -51,3 +51,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda40558bf09d3a489f9798f30758ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ButtonFood: {fileID: 0}
+  ButtonShower: {fileID: 0}
+  ButtonHand: {fileID: 0}
+  ButtonGun: {fileID: 0}
+  HandCursorTexture: {fileID: 2800000, guid: 43fa5a9a7bb27804d8a346a5c6d5d620, type: 3}
+  ShowerCursorTexture: {fileID: 2800000, guid: 885bf495ed7097d4389fa010fd33c77d, type: 3}
+  FoodCursorTexture: {fileID: 2800000, guid: 59116199155344f4c8779e9c8edb079a, type: 3}
+  GunCursorTexture: {fileID: 0}
+  MusicSource: {fileID: 0}
+  WinTex: {fileID: 0}
+  LoseTex: {fileID: 0}
+  ToggleMusicOn: {fileID: 0}
+  ToggleMusicOff: {fileID: 0}
+  ToggleMusicB: {fileID: 0}

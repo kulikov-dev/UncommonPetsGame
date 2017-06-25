@@ -38,6 +38,7 @@ public class SC_Porcupine : Animal, ICleanable
 
         GnawingSoundSource = gameObject.AddComponent<AudioSource>();
         GnawingSoundSource.clip = Resources.Load<AudioClip>("Gnawing");
+        GnawingSoundSource.volume = 0.5f;
     }
 
     private void SetIsGnawing(bool newValue)

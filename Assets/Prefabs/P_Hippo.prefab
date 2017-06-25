@@ -1097,7 +1097,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: bb244acbebc795f439b790483dfed0b8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1695,14 +1695,14 @@ MonoBehaviour:
   SpawnHeight: 0
   Health: 100
   Hunger: 0
-  HungerPerSecond: 0.05
+  AddHungerPerSecond: 0.05
   DeclineOfMindValue: 25
   DamageFromHungerPerSecond: 10
   BloodyRoomPrefab: {fileID: 1924428850765334, guid: 57a0d4ae499306443ba0a16b9811cb1f,
     type: 2}
   DirtyColor: {r: 1, g: 0, b: 0, a: 1}
   DirtyLevel: 0
-  DirtyPerSecond: 0.1
+  DirtyPerSecond: 0.005
   DamageInRange: 20
   RangeScaleFactor: 2
   StomachFullnessPerFeed: 0.25
@@ -1846,7 +1846,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 2
   serializedVersion: 2
   m_Quality: 0
@@ -1891,7 +1891,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -1937,7 +1937,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
@@ -1983,7 +1983,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -2028,7 +2028,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
@@ -2074,7 +2074,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
@@ -2120,7 +2120,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -2166,7 +2166,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 567427859
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
