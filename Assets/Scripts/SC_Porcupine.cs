@@ -90,7 +90,7 @@ public class SC_Porcupine : Animal, ICleanable
             Debug.Log("Start gnowing");
             SetIsGnawing(true);    
             StopCoroutine(C_DropNeedles);
-            C_Gnawing = StartCoroutine(DestroyEnergyFunc(4));
+            C_Gnawing = StartCoroutine(DestroyEnergyFunc(3f));
             LastGnowingTime = Time.time;
             return false;
         }

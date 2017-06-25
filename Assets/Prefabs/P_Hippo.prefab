@@ -1702,7 +1702,7 @@ MonoBehaviour:
     type: 2}
   DirtyColor: {r: 1, g: 0, b: 0, a: 1}
   DirtyLevel: 0
-  DirtyPerSecond: 0.05
+  DirtyPerSecond: 0.075
   DamageInRange: 20
   RangeScaleFactor: 2
   StomachFullnessPerFeed: 0.25
