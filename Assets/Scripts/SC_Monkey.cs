@@ -50,7 +50,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
     /// <summary> Реализация метода помыть -  Заставляет макаку выбрать себе другой target. Это позволит отгонять её от опасных предметов. </summary>
     void ICleanable.Clean()
     {
-        if(GoToStealItem)
+        if (GoToStealItem)
         {
             GoToStealItem = false;
             SelectNewTarget();
@@ -59,7 +59,7 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
         else
         {
             (this as ITouchable).Touch();
-        }        
+        }
     }
 
     /// <summary> Метод “нажатие мышью” - вызывается, когда на животное ткнули мышью. при наличии предмета, заставляет обезьяну бросить его. </summary>
@@ -135,6 +135,9 @@ public class SC_Monkey : Animal, ICleanable, ITouchable
 
     public override void OnDeath()
     {
+        if (ItemInHand != null)
+            ItemInHand.DropItem(transform.position + DropOffset);
+
         bubble.Hide();
         StopAllCoroutines();
         base.OnDeath();
