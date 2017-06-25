@@ -26,6 +26,9 @@ public class SC_Protagonist : MonoBehaviour
     protected AudioSource WaterSplashSoundSource;
     protected AudioSource ShotSoundSource;
 
+    protected AudioSource WinSoundSource;
+    protected AudioSource LoseSounrSource;
+
     protected void PlaySound(AudioSource source)
     {
         if (source.isPlaying)
@@ -46,6 +49,12 @@ public class SC_Protagonist : MonoBehaviour
 
         ShotSoundSource = gameObject.AddComponent<AudioSource>();
         ShotSoundSource.clip = Resources.Load<AudioClip>("Shot");
+
+        WinSoundSource = gameObject.AddComponent<AudioSource>();
+        WinSoundSource.clip = Resources.Load<AudioClip>("snd_Win");
+
+        LoseSounrSource = gameObject.AddComponent<AudioSource>();
+        LoseSounrSource.clip = Resources.Load<AudioClip>("snd_Lose");
     }
 
     // Update is called once per frame
@@ -118,10 +127,19 @@ public class SC_Protagonist : MonoBehaviour
         dayNightController.UpdateRooms();
         Time.timeScale = 0.00001f;
 
+        if (MusicSource != null)
+            MusicSource.mute = true;
+
         if (isWin)
+        {
             WinTex.enabled = true;
+            PlaySound(WinSoundSource);
+        }
         else
+        {
             LoseTex.enabled = true;
+            PlaySound(LoseSounrSource);
+        }
     }
 
     public void Exit()
