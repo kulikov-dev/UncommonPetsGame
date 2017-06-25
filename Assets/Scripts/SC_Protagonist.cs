@@ -101,6 +101,7 @@ public class SC_Protagonist : MonoBehaviour
     public Toggle ToggleMusicB;
     public void ToggleMusic()
     {
+        Debug.Log("test");
         var ToggleMusicImg = ToggleMusicB.GetComponent<Image>();
         if (ToggleMusicB.isOn)
             ToggleMusicImg.sprite = ToggleMusicOn;
