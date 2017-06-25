@@ -736,17 +736,17 @@ Prefab:
         type: 2}
       propertyPath: HandCursorTexture
       value: 
-      objectReference: {fileID: 2800000, guid: 6bf150c9b34ab8d40af616e8bd8f8ef8, type: 3}
+      objectReference: {fileID: 2800000, guid: b6832cc175338ca41ad4b4c7d63f16d9, type: 3}
     - target: {fileID: 114138020612826442, guid: 4fcc8d5093fb58244beeb969d3fa0563,
         type: 2}
       propertyPath: FoodCursorTexture
       value: 
-      objectReference: {fileID: 2800000, guid: 3326d36fefb83764099c36add8ae981f, type: 3}
+      objectReference: {fileID: 2800000, guid: baef3206595030646bf0978e8335c951, type: 3}
     - target: {fileID: 114138020612826442, guid: 4fcc8d5093fb58244beeb969d3fa0563,
         type: 2}
       propertyPath: ShowerCursorTexture
       value: 
-      objectReference: {fileID: 2800000, guid: 47f5b916f781c2348a27f9ce6b1bf9cc, type: 3}
+      objectReference: {fileID: 2800000, guid: ad4537cf603fdc146ab3f82586e0e5da, type: 3}
     - target: {fileID: 114138020612826442, guid: 4fcc8d5093fb58244beeb969d3fa0563,
         type: 2}
       propertyPath: ButtonHand
@@ -2080,7 +2080,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 551d349f53ab7cb448003d1967b5cc9f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3199f4f1c6726f44a995af89effbb940, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3381,7 +3381,7 @@ Prefab:
         type: 2}
       propertyPath: Animals.Array.data[3]
       value: 
-      objectReference: {fileID: 1248044023061068, guid: 5df29583dcac6d94bba9dffd8c1b5d51,
+      objectReference: {fileID: 1561958473132652, guid: 5df29583dcac6d94bba9dffd8c1b5d51,
         type: 2}
     - target: {fileID: 114524558672936016, guid: 7a48a610808941f4281afef1fc11285e,
         type: 2}
