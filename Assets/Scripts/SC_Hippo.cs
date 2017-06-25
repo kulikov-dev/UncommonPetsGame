@@ -39,6 +39,7 @@ public class SC_Hippo : Animal, ICleanable
     private Animator HippoAnimator;
 
     private AudioSource PoopsSoundSource;
+    private AudioSource RoarSoundSource;
     private SpriteMeshInstance[] HippoSprites;
 
     private SC_Bubble bubble;
@@ -64,6 +65,7 @@ public class SC_Hippo : Animal, ICleanable
         HippoAnimator.SetBool("IsInRage", true);
         MaxVelocity = DefaultMaxVecity * RangeScaleFactor;
         MaxAcceleration = DefaultMaxAcceleration * RangeScaleFactor * RangeScaleFactor;
+        RoarSoundSource.Play();
         return true;
     }
 
@@ -74,6 +76,7 @@ public class SC_Hippo : Animal, ICleanable
         MaxVelocity = DefaultMaxVecity;
         MaxAcceleration = DefaultMaxAcceleration;
         bubble.Hide();
+        RoarSoundSource.Stop();
     }
 
 
@@ -161,6 +164,11 @@ public class SC_Hippo : Animal, ICleanable
         HippoSprites = GetComponentsInChildren<SpriteMeshInstance>();
 
         bubble = gameObject.GetComponentInChildren<SC_Bubble>();
+
+        RoarSoundSource = gameObject.AddComponent<AudioSource>();
+        RoarSoundSource.clip = Resources.Load<AudioClip>("Roar");
+        RoarSoundSource.loop = true;
+        RoarSoundSource.volume = 0.4f;
     }
 
     // Update is called once per frame

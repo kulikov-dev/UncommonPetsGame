@@ -50,6 +50,9 @@ TagManager:
   - name: Background
     uniqueID: 2503779871
     locked: 0
+  - name: Sloth
+    uniqueID: 2180087041
+    locked: 0
   - name: Player
     uniqueID: 2450868177
     locked: 0
@@ -58,9 +61,6 @@ TagManager:
     locked: 0
   - name: Monkey
     uniqueID: 3085977205
-    locked: 0
-  - name: Sloth
-    uniqueID: 2180087041
     locked: 0
   - name: Porcupine
     uniqueID: 1566834037
@@ -76,4 +76,7 @@ TagManager:
     locked: 0
   - name: Indicators
     uniqueID: 1885112605
+    locked: 0
+  - name: Canvas
+    uniqueID: 1862106115
     locked: 0

@@ -1314,8 +1314,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10fb2ca30e077734591d40b23b87a072, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxVelocity: 2
-  MaxAcceleration: 4
+  MaxVelocity: 3
+  MaxAcceleration: 6
   Target: {fileID: 0}
   Level: 0
   CheckTargetDistance: 1
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   SpawnHeight: -0.3
   Health: 100
   Hunger: 0
-  HungerPerSecond: 0.05
+  AddHungerPerSecond: 0.05
   DeclineOfMindValue: 25
   DamageFromHungerPerSecond: 10
   BloodyRoomPrefab: {fileID: 1924428850765334, guid: 57a0d4ae499306443ba0a16b9811cb1f,
@@ -1359,7 +1359,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -683771675
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -1405,7 +1405,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -683771675
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
@@ -1451,7 +1451,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -683771675
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -1496,7 +1496,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -683771675
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
@@ -1542,7 +1542,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -683771675
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 1
   serializedVersion: 2
   m_Quality: 0
@@ -1588,7 +1588,7 @@ SkinnedMeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -683771675
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   serializedVersion: 2
   m_Quality: 0
