@@ -41,6 +41,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: StreetBackground
+    uniqueID: 4113148633
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
