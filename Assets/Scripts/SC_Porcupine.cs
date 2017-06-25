@@ -47,11 +47,12 @@ public class SC_Porcupine : Animal, ICleanable
         if(!isGnawing)
         {
             bubble.Hide();
-            PlaySound(GnawingSoundSource);
+            GnawingSoundSource.Stop();
         }
         else
         {
-            GnawingSoundSource.Stop();
+            PlaySound(GnawingSoundSource);
+            
         }            
     }
 
@@ -86,10 +87,9 @@ public class SC_Porcupine : Animal, ICleanable
         if (newEnergyPoint != null)
         {
             Debug.Log("Start gnowing");
-            isGnawing = true;            
+            SetIsGnawing(true);    
             StopCoroutine(C_DropNeedles);
             C_Gnawing = StartCoroutine(DestroyEnergyFunc(4));
-            PorcupineAnimator.SetBool("IsGnowing", true);
             LastGnowingTime = Time.time;
             return false;
         }
