@@ -83,12 +83,18 @@ public class SC_Protagonist : MonoBehaviour
         }
     }
 
+    private void SetCursor(Texture2D texture)
+    {
+        var cursorHotspot = new Vector2(texture.width / 2, texture.height / 2);
+        Cursor.SetCursor(texture, cursorHotspot, CursorMode.Auto);
+    }
+
     public void SetActionHand()
     {
         if (ButtonHand.interactable)
         {
             ToolType = enum_ToolType.Hand;
-            Cursor.SetCursor(HandCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(HandCursorTexture);
         }
     }
 
@@ -97,7 +103,7 @@ public class SC_Protagonist : MonoBehaviour
         if (ButtonShower.interactable)
         {
             ToolType = enum_ToolType.Shower;
-            Cursor.SetCursor(ShowerCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(ShowerCursorTexture);
         }        
     }
 
@@ -106,7 +112,7 @@ public class SC_Protagonist : MonoBehaviour
         if (ButtonFood.interactable)
         {
             ToolType = enum_ToolType.Food;
-            Cursor.SetCursor(FoodCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(FoodCursorTexture);
         }        
     }
 
@@ -115,7 +121,7 @@ public class SC_Protagonist : MonoBehaviour
         if (ButtonGun.interactable)
         {
             ToolType = enum_ToolType.Gun;
-            Cursor.SetCursor(GunCursorTexture, Vector2.zero, CursorMode.Auto);
+            SetCursor(GunCursorTexture);
         }
     }
 
