@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 114721308510570846}
   - component: {fileID: 82782208103357390}
   - component: {fileID: 95378732670465816}
-  - component: {fileID: 114858450680633364}
   m_Layer: 0
   m_Name: P_Hippo
   m_TagString: Untagged
@@ -1743,18 +1742,6 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4420144492494844}
   m_AttachedIK: {fileID: 114715475684086606}
---- !u!114 &114858450680633364
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1248044023061068}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337cf647585de8c42b6d1ba3cb604ffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeclineOfMindValue: 5
 --- !u!114 &114907581306111906
 MonoBehaviour:
   m_ObjectHideFlags: 1

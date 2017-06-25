@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 50475454574068784}
   - component: {fileID: 114244483982268080}
   - component: {fileID: 95309554091208360}
-  - component: {fileID: 114319623705349884}
   m_Layer: 0
   m_Name: P_Porcupine
   m_TagString: Untagged
@@ -1256,18 +1255,6 @@ MonoBehaviour:
     type: 2}
   NeedlesSpawnOffset: {x: 0, y: -0.2, z: 0}
   P_Needles: {fileID: 1792886454297942, guid: ba74ad4e03175244e921e9a14b0850ef, type: 2}
---- !u!114 &114319623705349884
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1216492600201942}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337cf647585de8c42b6d1ba3cb604ffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeclineOfMindValue: 5
 --- !u!114 &114423400789261486
 MonoBehaviour:
   m_ObjectHideFlags: 1

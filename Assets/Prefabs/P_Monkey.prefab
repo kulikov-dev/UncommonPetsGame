@@ -541,7 +541,6 @@ GameObject:
   - component: {fileID: 61126441513790118}
   - component: {fileID: 50789179504610542}
   - component: {fileID: 95672593468964590}
-  - component: {fileID: 114409191831668290}
   m_Layer: 0
   m_Name: P_Monkey
   m_TagString: Untagged
@@ -1317,9 +1316,11 @@ MonoBehaviour:
   DamageFromHungerPerSecond: 10
   BloodyRoomPrefab: {fileID: 1924428850765334, guid: 57a0d4ae499306443ba0a16b9811cb1f,
     type: 2}
+  ItemInHand: {fileID: 0}
   MonkeyHandTransform: {fileID: 4292142027750298}
   DropOffset: {x: 0, y: -0.7, z: 0}
   Damage: 10
+  GoToStealItem: 0
 --- !u!114 &114373331204446442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1382,18 +1383,6 @@ MonoBehaviour:
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 0}
   m_AttachedIK: {fileID: 114126949400814028}
---- !u!114 &114409191831668290
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1945356463890276}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337cf647585de8c42b6d1ba3cb604ffc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DeclineOfMindValue: 5
 --- !u!114 &114454089564548436
 MonoBehaviour:
   m_ObjectHideFlags: 1
