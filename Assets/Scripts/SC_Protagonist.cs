@@ -17,6 +17,9 @@ public class SC_Protagonist : MonoBehaviour
 
     public AudioSource MusicSource;
 
+    public Image WinTex;
+    public Image LoseTex;
+
     private enum_ToolType ToolType = enum_ToolType.Shower;
 
     // Use this for initialization
@@ -30,7 +33,7 @@ public class SC_Protagonist : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            
+
             var hitResults = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
             if (hitResults.Length > 0)
             {
@@ -59,7 +62,7 @@ public class SC_Protagonist : MonoBehaviour
         if (!isActive && ToolType == enum_ToolType.Gun)
             SetActionHand();
         ButtonGun.interactable = isActive;
-        if(isActive)
+        if (isActive)
         {
             //Проверяем, есть ли еще живые животные, если нет - конец игры
             ChackVictoryConditions();
@@ -71,19 +74,34 @@ public class SC_Protagonist : MonoBehaviour
     {
         var animals = FindObjectsOfType<Animal>();
         bool success = true;
-        foreach(var animal in animals)
+        foreach (var animal in animals)
         {
-            if(!(animal is Girl) && animal.Health > 0.0f)
+            if (!(animal is Girl) && animal.Health > 0.0f)
             {
                 success = false;
                 break;
             }
         }
-        if(success)
+        if (success)
         {
             //Game over
-            Debug.Log("YOU WIN!");
+            var protagonist = FindObjectOfType<SC_Protagonist>();
+            protagonist.FinishGame(true);
         }
+    }
+
+    public void FinishGame(bool isWin)
+    {
+        var dayNightController = FindObjectOfType<DayNightController>();
+        dayNightController.IsLightOn = false;
+        dayNightController.IsDay = false;
+        dayNightController.UpdateRooms();
+        Time.timeScale = 0.00001f;
+
+        if (isWin)
+            WinTex.enabled = true;
+        else
+            LoseTex.enabled = true;
     }
 
     public void Exit()
@@ -94,6 +112,7 @@ public class SC_Protagonist : MonoBehaviour
     public void RestartLevel()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;
     }
 
     public Sprite ToggleMusicOn;
@@ -101,7 +120,6 @@ public class SC_Protagonist : MonoBehaviour
     public Toggle ToggleMusicB;
     public void ToggleMusic()
     {
-        Debug.Log("test");
         var ToggleMusicImg = ToggleMusicB.GetComponent<Image>();
         if (ToggleMusicB.isOn)
             ToggleMusicImg.sprite = ToggleMusicOn;
@@ -133,7 +151,7 @@ public class SC_Protagonist : MonoBehaviour
         {
             ToolType = enum_ToolType.Shower;
             SetCursor(ShowerCursorTexture);
-        }        
+        }
     }
 
     public void SetActionFood()
@@ -142,7 +160,7 @@ public class SC_Protagonist : MonoBehaviour
         {
             ToolType = enum_ToolType.Food;
             SetCursor(FoodCursorTexture);
-        }        
+        }
     }
 
     public void SetActionGun()
@@ -156,7 +174,7 @@ public class SC_Protagonist : MonoBehaviour
 
     public void FixedUpdate()
     {
-        
+
     }
 
     private const int PointEnergyPriority = 7;
@@ -185,7 +203,7 @@ public class SC_Protagonist : MonoBehaviour
                 var hippoPriority = HippoPriority;
                 if (hippo.DirtyLevel > 0.7f)
                     hippoPriority = Hippo70Priority;
-                else if(hippo.DirtyLevel > 0.3f)
+                else if (hippo.DirtyLevel > 0.3f)
                     hippoPriority = Hippo30Priority;
                 prioroty = hippoPriority;
             }
@@ -207,7 +225,7 @@ public class SC_Protagonist : MonoBehaviour
                 if (monkey.GoToStealItem)
                     prioroty = MonkeyPriority;
             }
-            else if(cleanable is DirtySpot)
+            else if (cleanable is DirtySpot)
             {
                 prioroty = DirtySpotPriority;
             }
@@ -220,7 +238,7 @@ public class SC_Protagonist : MonoBehaviour
         }
         return result;
     }
-    
+
     private ITouchable GetItemToHand(RaycastHit2D[] hitResults)
     {
         ITouchable result = null;
@@ -254,7 +272,7 @@ public class SC_Protagonist : MonoBehaviour
                 result = touchable;
                 currentPriority = prioroty;
             }
-        }        
+        }
         return result;
     }
 
@@ -264,10 +282,10 @@ public class SC_Protagonist : MonoBehaviour
         foreach (var hitResult in hitResults)
         {
             var animal = hitResult.collider == null ? null : hitResult.collider.gameObject.GetComponent<Animal>();
-            
+
             if (animal != null && animal.enabled)
             {
-                if(result == null || animal.Hunger > result.Hunger)
+                if (result == null || animal.Hunger > result.Hunger)
                 {
                     Debug.Log("Result found!");
                     result = animal;
@@ -279,10 +297,10 @@ public class SC_Protagonist : MonoBehaviour
 
     private Animal GetAnimalToKill(RaycastHit2D[] hitResults)
     {
-        foreach(var hitResult in hitResults)
+        foreach (var hitResult in hitResults)
         {
             var animal = hitResult.collider == null ? null : hitResult.collider.gameObject.GetComponent<Animal>();
-            if(animal != null && animal.enabled && animal.Health > 0)
+            if (animal != null && animal.enabled && animal.Health > 0)
             {
                 return animal;
             }
@@ -295,7 +313,7 @@ public class SC_Protagonist : MonoBehaviour
         switch (ToolType)
         {
             case enum_ToolType.Shower:
-                
+
                 var cleanable = GetItemToShower(hitResults);
                 if (cleanable != null)
                     cleanable.Clean();
