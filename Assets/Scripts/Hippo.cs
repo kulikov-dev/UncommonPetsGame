@@ -73,6 +73,8 @@ public class Hippo : Animal, ICleanable
         MaxAcceleration = DefaultMaxAcceleration;
     }
 
+
+    DirtyRoom dirtyRoomScript;
     void OnTriggerEnter2D(Collider2D other)
     {
         if (!IsInRageMode)
@@ -96,7 +98,7 @@ public class Hippo : Animal, ICleanable
         var dirtyRoom = Instantiate(DirtyRoomPrefab);
         dirtyRoom.transform.parent = room.transform;
         dirtyRoom.transform.position = room.transform.position;
-        var dirtyRoomScript = dirtyRoom.GetComponent<DirtyRoom>();
+        dirtyRoomScript = dirtyRoom.GetComponent<DirtyRoom>();
         if (dirtyRoomScript != null)
         {
             dirtyRoomScript.Initialize();
@@ -127,6 +129,7 @@ public class Hippo : Animal, ICleanable
         if (Health != 0)
             SelectNewTarget();
         StomachFullness = 0.0f;
+        dirtyRoomScript = null;
     }
 
     public override bool NeedSelectNewTarget(Transform oldTarget)
@@ -180,7 +183,11 @@ public class Hippo : Animal, ICleanable
     public override void OnDeath()
     {
         StopAllCoroutines();
-        StopPooping();
+        if (dirtyRoomScript != null)
+            dirtyRoomScript.SetCanBeDestroyed();
+        if (IsPooping)
+            StopPooping();
+
         base.OnDeath();
     }
 }

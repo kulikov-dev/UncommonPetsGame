@@ -313,7 +313,29 @@ AnimationClip:
       m_RotationOrder: 4
     path: Bones/BaseBone
   m_ScaleCurves: []
-  m_FloatCurves: []
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.05
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.4888889
+        value: 2
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: HungerPerSecond
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: dae958b1277c8074dbd388bf4cb94024, type: 3}
   m_PPtrCurves: []
   m_SampleRate: 45
   m_WrapMode: 0
@@ -391,6 +413,13 @@ AnimationClip:
       script: {fileID: 0}
       typeID: 4
       customType: 14
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 0
+      attribute: 1448267476
+      script: {fileID: 11500000, guid: dae958b1277c8074dbd388bf4cb94024, type: 3}
+      typeID: 114
+      customType: 0
       isPPtrCurve: 0
     pptrCurveMapping: []
   m_AnimationClipSettings:
@@ -1398,6 +1427,28 @@ AnimationClip:
     path: Bones/BaseBone
     classID: 4
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0.05
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      - serializedVersion: 2
+        time: 0.4888889
+        value: 2
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: HungerPerSecond
+    path: 
+    classID: 114
+    script: {fileID: 11500000, guid: dae958b1277c8074dbd388bf4cb94024, type: 3}
   m_EulerEditorCurves:
   - curve:
       serializedVersion: 2
