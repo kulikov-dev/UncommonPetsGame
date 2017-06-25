@@ -55,6 +55,8 @@ public class SC_Protagonist : MonoBehaviour
 
         LoseSounrSource = gameObject.AddComponent<AudioSource>();
         LoseSounrSource.clip = Resources.Load<AudioClip>("snd_Lose");
+
+        MusicSource.mute = false;
     }
 
     // Update is called once per frame
@@ -156,16 +158,16 @@ public class SC_Protagonist : MonoBehaviour
     public Sprite ToggleMusicOn;
     public Sprite ToggleMusicOff;
     public Toggle ToggleMusicB;
-    public void ToggleMusic()
+    public void ToggleMusic(bool newValue)
     {
         var ToggleMusicImg = ToggleMusicB.GetComponent<Image>();
-        if (ToggleMusicB.isOn)
+        if (newValue)
             ToggleMusicImg.sprite = ToggleMusicOn;
         else
             ToggleMusicImg.sprite = ToggleMusicOff;
 
         if (MusicSource != null)
-            MusicSource.mute = !MusicSource.mute;
+            MusicSource.mute = !newValue;
     }
 
     private void SetCursor(Texture2D texture)
